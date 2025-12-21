@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地球物理學：臨界折射波走時公式推導</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, "Microsoft JhengHei";
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2980b9;
+            border-left: 5px solid #2980b9;
+            padding-left: 10px;
+            margin-top: 0;
+        }
+        .question {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+        .formula {
+            background: #f9f9f9;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 4px;
+            font-family: "Times New Roman", Times, serif;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>地球物理學作業報告</h1>
+</header>
+
+<section>
+    <h2>題目</h2>
+    <div class="question">
+        1. 請推導出臨界折射波的走時公式。<br>
+        2. 請說明甚麼是交叉距離 (Crossover Distance, Xcr)，並推導如何由地層速度 V1、V2 及地層厚度計算出 Xcr。
+    </div>
+</section>
+
+<section>
+    <h2>解題說明與推導</h2>
+    <p>以下為針對臨界折射波走時公式及交叉距離之詳細推導過程：</p>
+    
+    <div class="image-container">
+        <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW4_1.jpeg" alt="推導圖一">
+        <div class="image-caption">圖一：臨界折射波路徑與幾何關係推導</div>
+    </div>
+
+    <div class="image-container">
+        <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW4_2.jpeg" alt="推導圖二">
+        <div class="image-caption">圖二：走時公式（Time-Distance Curve）詳細計算</div>
+    </div>
+
+    <div class="image-container">
+        <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW4_3.jpeg" alt="推導圖三">
+        <div class="image-caption">圖三：交叉距離 (Xcr) 的定義與代數推導</div>
+    </div>
+</section>
+
+<section>
+    <h2>重點總結</h2>
+    <ul>
+        <li><strong>臨界折射波走時公式：</strong> 描述波從源點經過地層界面折射後回到地表接收點所需的時間與距離關係。</li>
+        <li><strong>交叉距離 (Xcr)：</strong> 指在震測記錄上，折射波與直接波（Direct Wave）到達時間相等的距離。在此距離之外，折射波會比直接波先到達。</li>
+        <li><strong>計算要素：</strong> 需透過第一層速度 <span class="formula">V1</span>、第二層速度 <span class="formula">V2</span> 以及地層厚度 <span class="formula">h</span> 進行聯立求解。</li>
+    </ul>
+</section>
+
+<footer>
+    <p style="text-align: center; color: #999; font-size: 0.8em;">© 2025 地球物理學課程報告製作</p>
+</footer>
+
+</body>
+</html>
