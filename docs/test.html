@@ -1,0 +1,43 @@
+import gradio as gr
+
+def load_geophysics_intro():
+    return """
+    # 🌍 地球物理概論說明文件
+    
+    ## 1. 什麼是地球物理學？
+    地球物理學（Geophysics）是通過物理學的方法研究地球及其環境的學科。
+    
+    ## 2. 核心研究範疇 (根據課本目錄)
+    - **地震學 (Seismology)**: 研究地震波的傳播，探測地球內部構造。
+    - **重力探勘 (Gravity Surveying)**: 測量地殼密度差異。
+    - **地磁學 (Geomagnetism)**: 地球磁場的變化與板塊運動。
+    - **地熱學 (Geothermics)**: 地球熱流與熱源。
+    
+    ## 3. 本週資料處理工具
+    - **Colab**: 雲端 Python 執行環境。
+    - **Hugging Face**: AI 模型與應用的棲身之所。
+    - **Dify**: 強大的 LLM 應用開發平台。
+    """
+
+with gr.Blocks(theme=gr.themes.Soft()) as demo:
+    gr.Markdown("# 9/10 第一週：課程介紹與 AI 工具集")
+    
+    with gr.Tab("知識重點"):
+        content = load_geophysics_intro()
+        gr.Markdown(content)
+        
+    with gr.Tab("工具連結"):
+        with gr.Row():
+            gr.Button("Google Colab", link="https://colab.research.google.com/")
+            gr.Button("Hugging Face", link="https://huggingface.co/")
+            gr.Button("Github", link="https://github.com/")
+
+    with gr.Accordion("點擊查看教科書目錄摘要"):
+        gr.Markdown("""
+        * Chapter 1: Global Geophysics
+        * Chapter 2: Seismology
+        * Chapter 3: Gravity and Isostasy
+        * ... (更多細節可串接 Gemini API 產生摘要)
+        """)
+
+demo.launch()
