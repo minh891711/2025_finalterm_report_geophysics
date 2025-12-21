@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地球物理概論與資料處理實務</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; }
+        .course-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+    </style>
+</head>
+<body class="bg-gray-50">
 
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16 px-4 shadow-lg">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">地球物理概論與資料處理實務</h1>
+            <p class="text-xl opacity-90">結合地球科學奧秘與現代 AI 資料處理技術</p>
+            <div class="mt-8 flex justify-center gap-4">
+                <a href="https://drive.google.com/file/d/11yCvPrtUAkvL9p4dHtB-r2FUgZH6z9fg/view?usp=sharing" target="_blank" 
+                   class="bg-white text-blue-800 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition flex items-center gap-2">
+                    <i class="fas fa-book"></i> 課程教科書目錄
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation / Stats -->
+    <nav class="sticky top-0 bg-white shadow-md z-50 py-4 px-4">
+        <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center text-sm font-medium">
+            <div class="flex gap-4 mb-2 md:mb-0">
+                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full">18 週課程</span>
+                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full">3 場專家講座</span>
+                <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full">2 場實地參訪</span>
+            </div>
+            <div class="text-gray-500 italic">
+                AI 輔助教學系列課程
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        
+        <!-- Intro Section -->
+        <section class="mb-16 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <h2 class="text-2xl font-bold mb-6 border-l-4 border-blue-600 pl-4 text-gray-800">課程介紹</h2>
+            <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+                本課程旨在引導學生探索地球內部的運作規律，並掌握現代地球物理學家必備的數位武器。我們將學習內容分為兩大核心模組：
+            </p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                    <h3 class="font-bold text-blue-800 mb-2 flex items-center gap-2">
+                        <i class="fas fa-globe-americas"></i> 地球物理知識
+                    </h3>
+                    <p class="text-gray-600">涵蓋折射探勘、重力探勘、地震學、板塊構造、地磁與地熱。從理論基礎到實際應用案例分析。</p>
+                </div>
+                <div class="bg-green-50 p-6 rounded-xl border border-green-100">
+                    <h3 class="font-bold text-green-800 mb-2 flex items-center gap-2">
+                        <i class="fas fa-code"></i> 資料處理技能
+                    </h3>
+                    <p class="text-gray-600">手把手教導 Python 環境、Gemini API、Dify、Gradio、Hugging Face 等尖端 AI 工具，以及 PyGMT、ObsPy 等專業地科軟體。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <div class="relative">
+            <!-- Vertical Line -->
+            <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-blue-200 rounded-full hidden md:block"></div>
+
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800 italic">課程進度表</h2>
+
+            <!-- Week cards go here -->
+            <div class="space-y-12">
+                
+                <!-- Week 1 - Special Highlight -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="flex-1 md:pr-12 w-full">
+                        <div class="course-card bg-white p-6 rounded-2xl shadow-md border-2 border-blue-500 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-blue-500 text-white px-4 py-1 rounded-bl-xl text-xs">熱門</div>
+                            <span class="text-blue-600 font-bold">9/10 第 1 週</span>
+                            <h3 class="text-xl font-bold mb-3 text-gray-800">課程介紹與環境架設</h3>
+                            <div class="space-y-2 mb-4">
+                                <p class="text-sm"><span class="font-semibold text-gray-700">📖 知識:</span> 認識地球物理範疇</p>
+                                <p class="text-sm"><span class="font-semibold text-gray-700">💻 技能:</span> Python, Hugging Face, Dify, Github, Colab</p>
+                            </div>
+                            <a href="https://huggingface.co/spaces/minshu10/intro_geophysics" target="_blank" 
+                               class="inline-flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition">
+                                <i class="fab fa-hugging-face"></i> 點此進入互動應用程式
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 bg-blue-600 rounded-full border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    <div class="flex-1 hidden md:block"></div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="flex-1 hidden md:block"></div>
+                    <div class="w-8 h-8 bg-blue-400 rounded-full border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    <div class="flex-1 md:pl-12 w-full">
+                        <div class="course-card bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                            <span class="text-blue-600 font-bold">9/17 第 2 週</span>
+                            <h3 class="text-xl font-bold mb-3 text-gray-800">折射探勘基礎</h3>
+                            <p class="text-sm mb-1"><span class="font-semibold text-gray-700">📖 知識:</span> 折射探勘學概論</p>
+                            <p class="text-sm"><span class="font-semibold text-gray-700">💻 技能:</span> PyGMT, ObsPy, Streamlit, Gradio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 3 - Field Trip -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="flex-1 md:pr-12 w-full">
+                        <div class="course-card bg-orange-50 p-6 rounded-2xl shadow-sm border border-orange-200">
+                            <span class="text-orange-600 font-bold">9/24 第 3 週</span>
+                            <h3 class="text-xl font-bold mb-3 text-gray-800 flex items-center gap-2">
+                                <i class="fas fa-mountain"></i> 校園野外實驗
+                            </h3>
+                            <p class="text-sm font-semibold text-orange-800">主題：折射探勘現場實作</p>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 bg-orange-400 rounded-full border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    <div class="flex-1 hidden md:block"></div>
+                </div>
+
+                <!-- Week 4 - Guest -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="flex-1 hidden md:block"></div>
+                    <div class="w-8 h-8 bg-purple-400 rounded-full border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    <div class="flex-1 md:pl-12 w-full">
+                        <div class="course-card bg-purple-50 p-6 rounded-2xl shadow-sm border border-purple-200">
+                            <span class="text-purple-600 font-bold">10/1 第 4 週</span>
+                            <h3 class="text-xl font-bold mb-3 text-gray-800 flex items-center gap-2">
+                                <i class="fas fa-microphone"></i> 甘禮有博士 專題演講
+                            </h3>
+                            <p class="text-sm font-semibold text-purple-800 text-lg">主題：地震層析成像</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mid-term 10/29 -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="flex-1 md:pr-12 w-full">
+                        <div class="course-card bg-red-50 p-6 rounded-2xl shadow-sm border border-red-200 text-center">
+                            <span class="text-red-600 font-bold italic text-2xl">10/29 第 8 週 期中考</span>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 bg-red-500 rounded-full border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    <div class="flex-1 hidden md:block"></div>
+                </div>
+
+                <!-- AI Meeting - 12/17 -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="flex-1 hidden md:block"></div>
+                    <div class="w-8 h-8 bg-purple-400 rounded-full border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    <div class="flex-1 md:pl-12 w-full">
+                        <div class="course-card bg-purple-50 p-6 rounded-2xl shadow-sm border border-purple-200">
+                            <span class="text-purple-600 font-bold">12/17 第 15 週</span>
+                            <h3 class="text-xl font-bold mb-3 text-gray-800 flex items-center gap-2">
+                                <i class="fas fa-robot"></i> 廖勿渝博士 專題演講
+                            </h3>
+                            <p class="text-sm font-semibold text-purple-800">AI 遇上地震學：從深度學習到全自動化監測</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Trip -->
+                <div class="relative flex flex-col md:flex-row items-center">
+                    <div class="flex-1 md:pr-12 w-full">
+                        <div class="course-card bg-green-50 p-6 rounded-2xl shadow-sm border border-green-200">
+                            <span class="text-green-600 font-bold">12/31 ~ 1/7</span>
+                            <h3 class="text-xl font-bold mb-3 text-gray-800 flex items-center gap-2">
+                                <i class="fas fa-bus"></i> 實地參訪行程
+                            </h3>
+                            <ul class="text-sm text-gray-700 space-y-2">
+                                <li>• 第 17 週：參訪中央氣象署</li>
+                                <li>• 第 18 週：參訪地質及礦業文化推廣中心</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 bg-green-500 rounded-full border-4 border-white shadow-md z-10 hidden md:block"></div>
+                    <div class="flex-1 hidden md:block"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Note -->
+        <footer class="mt-24 text-center text-gray-500 pb-12">
+            <p>© 2024-2025 地球物理課程教學網頁</p>
+            <p class="text-sm mt-2">Powered by Hugging Face & AI Tools</p>
+        </footer>
+    </main>
+
+</body>
+</html>
