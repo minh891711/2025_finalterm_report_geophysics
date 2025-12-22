@@ -11,10 +11,12 @@
         body { font-family: 'Noto Sans TC', sans-serif; background-color: #020617; color: #f1f5f9; }
         .content-card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(59, 130, 246, 0.2); backdrop-filter: blur(10px); }
         .highlight { color: #60a5fa; font-weight: bold; }
+        .img-zoom { transition: transform 0.3s ease; }
+        .img-zoom:hover { transform: scale(1.05); }
     </style>
 </head>
 <body class="p-6 md:p-12">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-5xl mx-auto">
         <!-- Back Button -->
         <a href="index.html" class="inline-flex items-center text-blue-400 hover:text-blue-300 mb-8 transition">
             <i class="fas fa-arrow-left mr-2"></i> 返回主課程網頁
@@ -28,36 +30,63 @@
             </div>
         </header>
 
-        <div class="space-y-8">
-            <!-- Part 1 -->
-            <section class="content-card p-6 rounded-2xl">
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+        <div class="space-y-12">
+            <!-- Part 1: 地震波與成像基礎 -->
+            <section class="content-card p-8 rounded-2xl">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
                     <i class="fas fa-wave-square text-blue-500"></i> 地震波與成像基礎
                 </h2>
-                <p class="leading-relaxed text-slate-300">
-                    演講由淺入深，從層析成像開始介紹地震波的傳遞路徑。博士詳細拆解了地震研究的三大要素：
-                    <span class="highlight">Source (震源)</span>、<span class="highlight">Structure (構造)</span> 與 <span class="highlight">Receiver (接收器)</span>。
-                    特別引人入勝的是關於 <span class="highlight">Forward Problem (正演)</span> 與 <span class="highlight">Inverse Problem (反演)</span> 的探討，這與我們第一週學到的模擬概念相呼應，讓我對地震物理的計算邏輯有了更具體的認識。
-                </p>
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="flex-1">
+                        <p class="leading-relaxed text-slate-300 mb-4">
+                            演講由淺入深，從層析成像開始介紹地震波的傳遞路徑。博士詳細拆解了地震研究的三大要素：
+                            <span class="highlight">Source (震源)</span>、<span class="highlight">Structure (構造)</span> 與 <span class="highlight">Receiver (接收器)</span>。
+                        </p>
+                        <p class="leading-relaxed text-slate-300">
+                            特別引人入勝的是關於 <span class="highlight">Forward Problem (正演)</span> 與 <span class="highlight">Inverse Problem (反演)</span> 的探討，這與我們第一週學到的模擬概念相呼應，讓我對地震物理的計算邏輯有了更具體的認識。
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW6_1.png" 
+                             alt="地震波成像基礎" 
+                             class="rounded-lg shadow-2xl border border-slate-700 max-w-xs img-zoom">
+                        <p class="text-center text-xs text-slate-500 mt-2">地震波傳遞示意圖</p>
+                    </div>
+                </div>
             </section>
 
-            <!-- Part 2 -->
-            <section class="content-card p-6 rounded-2xl">
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+            <!-- Part 2: 臺灣地底的波速視界 -->
+            <section class="content-card p-8 rounded-2xl">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
                     <i class="fas fa-map-marked-alt text-green-500"></i> 臺灣地底的波速視界
                 </h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="space-y-3">
-                        <p class="text-slate-300 italic">透過波速圖觀察到的地質特徵：</p>
-                        <ul class="list-disc list-inside text-slate-400 space-y-2">
-                            <li><span class="text-blue-300">西部地區：</span> 呈現低速帶。</li>
-                            <li><span class="text-orange-300">中央山脈：</span> 高速帶帶顯示變質岩特徵。</li>
-                            <li><span class="text-red-400">岩漿庫：</span> 清晰可見大屯火山與龜山島的構造。</li>
-                        </ul>
+                <div class="space-y-8">
+                    <p class="text-slate-300 leading-relaxed italic">
+                        透過波速圖觀察到的地質特徵：西部地區為低速帶，中央山脈則呈現高速帶（變質岩特徵），並能清晰辨識大屯火山與龜山島的岩漿庫。
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <div class="bg-slate-900 rounded-xl p-2 border border-slate-700">
+                                <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW6_2.png" 
+                                     alt="臺灣波速圖 1" 
+                                     class="rounded-lg w-full h-auto img-zoom">
+                            </div>
+                            <p class="text-center text-xs text-slate-500">臺灣地底深度波速分布圖</p>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="bg-slate-900 rounded-xl p-2 border border-slate-700">
+                                <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW6_3.png" 
+                                     alt="臺灣波速圖 2" 
+                                     class="rounded-lg w-full h-auto img-zoom">
+                            </div>
+                            <p class="text-center text-xs text-slate-500">板塊隱沒帶構造觀測</p>
+                        </div>
                     </div>
-                    <div class="bg-slate-900/80 p-4 rounded-xl text-sm border border-slate-700">
+
+                    <div class="bg-slate-900/80 p-6 rounded-xl border border-slate-700">
                         <p class="text-slate-300 leading-relaxed">
-                            演講展示了與傳統課本不同的板塊觀點：菲律賓海板塊隱沒至歐亞板塊下方時，中間存在顯著的空間，且西南部的交界處以藍色標示出海洋板塊的延伸。
+                            演講展示了與傳統課本不同的板塊觀點：<span class="text-blue-400">菲律賓海板塊</span>隱沒至歐亞板塊下方時，中間存在顯著的空間，且西南部的交界處以淺藍色標示出海洋板塊。這些視覺化證據讓我對臺灣的地質構造有了全新的理解。
                         </p>
                     </div>
                 </div>
@@ -66,15 +95,15 @@
             <!-- Summary -->
             <section class="border-l-4 border-blue-500 pl-6 my-12">
                 <h2 class="text-xl font-bold mb-3 italic">總結與啟發</h2>
-                <p class="text-slate-400 leading-relaxed">
+                <p class="text-slate-400 leading-relaxed text-lg">
                     雖然地震學中許多深奧的物理量對現在的我來說仍具挑戰性，但這次演講透過大量的圖片視覺化，讓枯燥的數據變成生動的地層剖面。
                     這讓我更進一步體會到地球物理不僅是公式，更是探索腳下未知世界的眼睛。
                 </p>
             </section>
         </div>
 
-        <footer class="mt-16 text-center text-slate-500 text-sm">
-            © 2025 地球物理課程筆記紀錄
+        <footer class="mt-16 text-center text-slate-500 text-sm pb-12">
+            © 2025 地球物理課程筆記紀錄 | Powered by Tailwind CSS
         </footer>
     </div>
 </body>
