@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW14 | 廖勿渝博士專題演講紀錄</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #020617; color: #f1f5f9; }
+        .tech-card { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(56, 189, 248, 0.2); backdrop-filter: blur(8px); transition: all 0.3s ease; }
+        .tech-card:hover { border-color: #38bdf8; box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
+        .ai-accent { color: #38bdf8; font-family: 'Orbitron', sans-serif; }
+        .logic-line { border-left: 2px dashed rgba(56, 189, 248, 0.4); padding-left: 1.5rem; margin-left: 0.5rem; }
+    </style>
+</head>
+<body class="p-6 md:p-12 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-950 to-slate-950">
+    <div class="max-w-4xl mx-auto">
+        <!-- Back Button -->
+        <a href="index.html" class="inline-flex items-center text-sky-400 hover:text-sky-300 mb-8 transition">
+            <i class="fas fa-arrow-left mr-2"></i> 返回主課程網頁
+        </a>
+
+        <header class="mb-12 border-b border-sky-500/30 pb-8">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-white uppercase tracking-wider">HW14：AI 遇上地震學</h1>
+            <p class="text-sky-400 text-lg mb-4">從深度學習到全自動化監測的革新之路</p>
+            <div class="flex flex-wrap gap-4 text-sm">
+                <span class="bg-sky-900/50 px-3 py-1 rounded-full border border-sky-500/50 text-sky-300">講者：廖勿渝 博士</span>
+                <span class="bg-slate-800 px-3 py-1 rounded-full text-slate-400">日期：2025/12/17</span>
+            </div>
+        </header>
+
+        <!-- Main Content Section -->
+        <div class="space-y-10">
+            
+            <!-- Context Section -->
+            <section class="tech-card p-8 rounded-2xl">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-3 ai-accent">
+                    <i class="fas fa-brain"></i> DEEP LEARNING IN SEISMOLOGY
+                </h2>
+                <p class="leading-relaxed text-slate-300 mb-6 text-lg">
+                    在 AI 趨勢快速成長的背景下，這次演講讓我深刻認識到 <span class="text-white font-bold underline decoration-sky-500">深度學習 (Deep Learning)</span> 
+                    在地震學上的廣泛應用。透過開發演算法並訓練模型，AI 成為研究龐大地震數據的強大助手。
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-black/40 p-4 rounded-lg flex items-start gap-3">
+                        <i class="fas fa-user-minus text-sky-500 mt-1"></i>
+                        <p class="text-sm text-slate-400">解決人力不足問題：減少人工分析的繁瑣程序。</p>
+                    </div>
+                    <div class="bg-black/40 p-4 rounded-lg flex items-start gap-3">
+                        <i class="fas fa-database text-sky-500 mt-1"></i>
+                        <p class="text-sm text-slate-400">處理海量資料：應對人工難以負荷的大數據量。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Deep Dive -->
+            <section>
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-3 ai-accent">
+                    <i class="fas fa-microchip"></i> 技術焦點與分析方法
+                </h2>
+                <div class="logic-line space-y-8">
+                    <div>
+                        <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-wave-square text-sky-400"></i> P波與S波自動辨識
+                        </h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            最令我印象深刻的是讓 AI 分析地震波圖中的 P 波與 S 波。透過函數圖形的呈現與多次迭代訓練，AI 在處理複雜波形圖時能展現更高的準確度，實現自動化拾取 (Phase Picking)。
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+                            <i class="fas fa-project-diagram text-sky-400"></i> 模型訓練策略 (Training Strategies)
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="p-4 bg-sky-950/30 border border-sky-800 rounded-lg">
+                                <span class="text-sky-300 font-bold text-xs uppercase block mb-1">Transfer Learning</span>
+                                <p class="text-xs text-slate-400 italic">遷移學習：將預訓練模型的知識轉移至地震領域。</p>
+                            </div>
+                            <div class="p-4 bg-sky-950/30 border border-sky-800 rounded-lg">
+                                <span class="text-sky-300 font-bold text-xs uppercase block mb-1">Multitask Learning</span>
+                                <p class="text-xs text-slate-400 italic">多工學習：同時訓練多項辨識任務以提升模型泛化能力。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Personal Insight -->
+            <section class="relative">
+                <div class="absolute -left-2 top-0 bottom-0 w-1 bg-gradient-to-b from-sky-500 to-transparent"></div>
+                <div class="pl-8">
+                    <h2 class="text-2xl font-bold mb-4 italic text-white">心得與啟發</h2>
+                    <p class="text-slate-300 leading-relaxed text-lg">
+                        這是我第一次完整且認真聽完的 AI 相關講座。不僅對 Deep Learning 有了初步且系統性的認識，也解開了我對 LLM (大語言模型) 訓練方式與圖片辨別流程的好奇。
+                        雖然演講內容涉及許多複雜的處理機制，但我很開心能藉此機會打開視野，期待未來能探索更多 AI 與地球科學結合的可能性。
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-20 text-center text-slate-600 text-[10px] tracking-[0.2em] uppercase pb-12">
+            © 2025 Deep Learning & Seismology Note | AI-Driven Research
+        </footer>
+    </div>
+</body>
+</html>
