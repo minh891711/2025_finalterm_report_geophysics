@@ -25,7 +25,6 @@
             min-height: 100vh;
         }
 
-        /* 側邊導覽列 */
         .sidebar {
             width: 260px;
             background-color: var(--primary);
@@ -33,7 +32,6 @@
             position: fixed;
             height: 100vh;
             overflow-y: auto;
-            transition: all 0.3s;
             z-index: 100;
         }
 
@@ -43,35 +41,12 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        .sidebar-menu {
-            list-style: none;
-            padding: 10px 0;
-        }
+        .sidebar-menu { list-style: none; padding: 10px 0; }
+        .sidebar-menu li { padding: 12px 25px; cursor: pointer; transition: 0.2s; font-size: 0.95rem; }
+        .sidebar-menu li:hover { background-color: var(--secondary); }
+        .sidebar-menu li.active { background-color: var(--accent); border-left: 5px solid #fff; }
 
-        .sidebar-menu li {
-            padding: 12px 25px;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 0.95rem;
-        }
-
-        .sidebar-menu li:hover {
-            background-color: var(--secondary);
-            padding-left: 35px;
-        }
-
-        .sidebar-menu li.active {
-            background-color: var(--accent);
-            border-left: 5px solid #fff;
-        }
-
-        /* 主要內容區 */
-        .main-content {
-            margin-left: 260px;
-            flex: 1;
-            padding: 40px;
-            max-width: 1200px;
-        }
+        .main-content { margin-left: 260px; flex: 1; padding: 40px; max-width: 1200px; }
 
         .card {
             background: var(--white);
@@ -89,97 +64,66 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        h1 { color: var(--primary); margin-bottom: 20px; font-size: 2.5rem; text-align: center; }
+        h1 { color: var(--primary); margin-bottom: 15px; font-size: 2.2rem; text-align: center; }
         h2 { color: var(--accent); margin-bottom: 15px; border-left: 5px solid var(--accent); padding-left: 15px; }
         p { margin-bottom: 15px; line-height: 1.8; font-size: 1.1rem; }
 
-        .list-item { margin-bottom: 10px; display: flex; align-items: flex-start; }
-        .list-item::before { content: "•"; color: var(--accent); font-weight: bold; margin-right: 10px; }
-
-        /* 圖片樣式 */
-        .report-img {
+        /* 封面圖片修改：裁切為橫長方形 */
+        .hero-img {
             width: 100%;
-            max-width: 800px;
-            height: auto;
-            display: block;
-            margin: 20px auto;
+            height: 250px; /* 固定高度 */
+            object-fit: cover; /* 自動裁切保持比例 */
+            object-position: center;
             border-radius: 8px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        .img-caption {
-            text-align: center;
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        /* 器材表格樣式 */
-        .equipment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        /* 實驗照片排列修改：並排顯示 */
+        .photo-grid {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
             margin-top: 20px;
         }
-        .equipment-item {
-            border: 1px solid #eee;
-            padding: 20px;
-            border-radius: 8px;
-            background: #fafafa;
-        }
-        .equipment-item strong { color: var(--primary); display: block; margin-bottom: 5px; }
-
-        /* 數據表格 */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: #fff;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
+        .photo-item {
+            flex: 1;
             text-align: center;
         }
+        .photo-item img {
+            width: 100%;
+            height: 200px; /* 縮小高度 */
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .photo-caption {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        /* 其他原有樣式 */
+        .equipment-img { width: 100%; max-width: 600px; display: block; margin: 0 auto 20px; border-radius: 8px; }
+        .equipment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .equipment-item { border: 1px solid #eee; padding: 15px; border-radius: 8px; background: #fafafa; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
         th { background-color: var(--primary); color: white; }
-        tr:nth-child(even) { background-color: #f9f9f9; }
-
-        /* 流程步驟 */
-        .step { display: flex; margin-bottom: 15px; }
-        .step-num {
-            background: var(--accent);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        .feedback-box {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            border-top: 4px solid var(--accent);
-        }
-        .feedback-name { font-weight: bold; font-size: 1.2rem; color: var(--primary); margin-bottom: 10px; display: block; }
+        .feedback-box { background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-top: 4px solid var(--accent); }
 
         @media (max-width: 768px) {
             .sidebar { width: 0; transform: translateX(-100%); }
             .main-content { margin-left: 0; padding: 20px; }
+            .photo-grid { flex-direction: column; } /* 手機版改回垂直排列 */
         }
     </style>
 </head>
 <body>
 
     <nav class="sidebar">
-        <div class="sidebar-header">
-            <h3>實驗報告導覽</h3>
-        </div>
+        <div class="sidebar-header"><h3>實驗報告導覽</h3></div>
         <ul class="sidebar-menu">
             <li class="active" onclick="showPage('home')">首頁 / 封面</li>
             <li onclick="showPage('purpose')">實驗目的</li>
@@ -197,165 +141,91 @@
 
     <main class="main-content">
         <div id="home" class="card active">
-            <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_5.png" alt="封面圖" class="report-img">
+            <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_5.png" alt="封面" class="hero-img">
             <h1>地球物理：折射震測實驗</h1>
-            <p style="font-size: 1.5rem; color: #666; text-align: center;">組員：洪敏書、李政皚、林靖融</p>
+            <p style="text-align: center; color: #666; font-size: 1.2rem;">組員：洪敏書、李政皚、林靖融</p>
         </div>
 
         <div id="purpose" class="card">
             <h2>實驗目的</h2>
-            <div class="list-item">熟悉地震折射法的基本原理和野外觀測程序。</div>
-            <div class="list-item">了解如何利用走時資料以推算地層的速度與厚度。</div>
-            <div class="list-item">實地體驗地球物理方法在地下構造探勘與業界工程的實際運用。</div>
+            <p>1. 熟悉地震折射法的基本原理和野外觀測程序。</p>
+            <p>2. 了解如何利用走時資料以推算地層的速度與厚度。</p>
+            <p>3. 實地體驗地球物理方法在地下構造探勘與業界工程的實際運用。</p>
         </div>
 
         <div id="theory" class="card">
             <h2>實驗原理</h2>
-            <p>利用地震波在不同介質交界面的折射現象（臨界折射波），推測地下地層的波速與厚度分布。當震源產生地震波後，波會以一定速度傳播，當接觸到地層交界面時，部分波會依據<b>司乃耳定律（Snell's Law）</b>產生折射。</p>
-            <p>在距離較近時觀測的是<b>直接波 (Direct Wave)</b>；當距離較遠時，由於下層波速較快，即使移動距離較長，傳遞時間也可能較短，因此在走時曲線上形成折線轉折點（交叉距離 Cross-over distance）。藉由分析走時曲線，可求得各層介質速率並推算厚度。</p>
+            <p>利用地震波在不同介質交界面的折射現象，依據<b>司乃耳定律（Snell's Law）</b>推測波速與厚度。分析走時曲線中的直接波與折射波，尋找轉折點以求得介質參數。</p>
         </div>
 
         <div id="equipment" class="card">
             <h2>所需器材</h2>
-            <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_1.png" alt="所需器材" class="report-img">
+            <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_1.png" alt="器材" class="equipment-img">
             <div class="equipment-grid">
-                <div class="equipment-item"><strong>資料擷取系統 (黃色盒子)</strong>將訊號數位化並傳輸到電腦。</div>
-                <div class="equipment-item"><strong>接收器 GEOPHONE (紅色)</strong>共 24 個。將震動感應電流轉換成電訊號。</div>
-                <div class="equipment-item"><strong>電纜線 (橘色)</strong>連接接收器至資料擷取系統。</div>
-                <div class="equipment-item"><strong>鐵鎚與鐵板</strong>產生地震波的人工震源。</div>
-                <div class="equipment-item"><strong>感應器 (白色電線)</strong>放置於鐵板旁，告訴電腦地震發生的瞬間。</div>
-                <div class="equipment-item"><strong>皮尺</strong>測量長度（50 公尺）。</div>
+                <div class="equipment-item"><strong>資料擷取系統</strong>訊號數位化傳輸。</div>
+                <div class="equipment-item"><strong>接收器 Geophone</strong>共 24 個，感測震動。</div>
+                <div class="equipment-item"><strong>鐵鎚與鐵板</strong>人工震源。</div>
             </div>
         </div>
 
         <div id="process" class="card">
             <h2>過程描述</h2>
-            <div class="step"><div class="step-num">1</div><p>放置皮尺 50 公尺作為測線。</p></div>
-            <div class="step"><div class="step-num">2</div><p>垂直埋入 24 個接收器（Geophones），確保垂直地面。</p></div>
-            <div class="step"><div class="step-num">3</div><p>接收器夾住電纜線並連接資料擷取系統。</p></div>
-            <div class="step"><div class="step-num">4</div><p>電腦完成設置並連線。</p></div>
-            <div class="step"><div class="step-num">5</div><p>放置鐵板於起始點，並在旁放置同步感應器。</p></div>
-            <div class="step"><div class="step-num">6</div><p>鐵鎚擊發產生訊號，檢查電腦數據。</p></div>
-            <div class="step"><div class="step-num">7</div><p>每隔 6 公尺（最後一段 4 公尺）移動鐵板重複擊發。</p></div>
+            <p>佈設 50 公尺測線 → 埋設 24 個 Geophones → 連接系統 → 放置鐵板與感應器 → 擊發並紀錄數據 → 每 6 公尺移動震源重複實驗。</p>
         </div>
 
         <div id="analysis1" class="card">
-            <h2>第一次數據計算結果</h2>
-            <p>依據公式：\(h = \frac{Xcr}{2} \sqrt{\frac{V2-V1}{V2+V1}}\)</p>
+            <h2>第一次數據分析</h2>
             <table>
-                <thead>
-                    <tr>
-                        <th>炸點距離 (m)</th>
-                        <th>0</th>
-                        <th>6</th>
-                        <th>12</th>
-                        <th>18</th>
-                        <th>24</th>
-                        <th>30</th>
-                        <th>36</th>
-                        <th>42</th>
-                        <th>46</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>V1 (m/s)</td><td>480</td><td>291</td><td>326</td><td>325</td><td>286</td><td>530</td><td>326</td><td>561</td><td>274</td></tr>
-                    <tr><td>V2 (m/s)</td><td>1000</td><td>960</td><td>695</td><td>782</td><td>993</td><td>800</td><td>683</td><td>1028</td><td>867</td></tr>
-                    <tr><td>Xcr (m)</td><td>16</td><td>13</td><td>11</td><td>10</td><td>12</td><td>13</td><td>10</td><td>13</td><td>11</td></tr>
-                    <tr><td>h (m)</td><td>4.71</td><td>4.75</td><td>3.30</td><td>3.21</td><td>3.86</td><td>2.93</td><td>2.97</td><td>3.65</td><td>3.97</td></tr>
-                </tbody>
+                <tr><th>距離 (m)</th><th>0</th><th>6</th><th>12</th><th>18</th><th>24</th><th>30</th><th>36</th><th>42</th><th>46</th></tr>
+                <tr><td>V1 (m/s)</td><td>480</td><td>291</td><td>326</td><td>325</td><td>286</td><td>530</td><td>326</td><td>561</td><td>274</td></tr>
+                <tr><td>V2 (m/s)</td><td>1000</td><td>960</td><td>695</td><td>782</td><td>993</td><td>800</td><td>683</td><td>1028</td><td>867</td></tr>
+                <tr><td>h (m)</td><td>4.71</td><td>4.75</td><td>3.30</td><td>3.21</td><td>3.86</td><td>2.93</td><td>2.97</td><td>3.65</td><td>3.97</td></tr>
             </table>
-            <p style="color: red;">* 註：第一次計算發現 V1 誤差較大。</p>
         </div>
 
         <div id="analysis2" class="card">
-            <h2>第二次數據計算結果 (修正後)</h2>
+            <h2>第二次數據分析 (修正)</h2>
             <table>
-                <thead>
-                    <tr>
-                        <th>炸點距離 (m)</th>
-                        <th>0</th>
-                        <th>6</th>
-                        <th>12</th>
-                        <th>18</th>
-                        <th>24</th>
-                        <th>30</th>
-                        <th>36</th>
-                        <th>42</th>
-                        <th>46</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>V1 (m/s)</td><td>434</td><td>423</td><td>464</td><td>427</td><td>619</td><td>430</td><td>426</td><td>427</td><td>410</td></tr>
-                    <tr><td>V2 (m/s)</td><td>1067</td><td>1012</td><td>1085</td><td>985</td><td>1185</td><td>1100</td><td>1066</td><td>1005</td><td>974</td></tr>
-                    <tr><td>Xcr (m)</td><td>14</td><td>14</td><td>14</td><td>8</td><td>12</td><td>13</td><td>12</td><td>11</td><td>12</td></tr>
-                    <tr><td>h (m)</td><td>4.55</td><td>4.48</td><td>4.43</td><td>2.51</td><td>3.83</td><td>4.30</td><td>3.93</td><td>3.49</td><td>3.83</td></tr>
-                </tbody>
+                <tr><th>距離 (m)</th><th>0</th><th>6</th><th>12</th><th>18</th><th>24</th><th>30</th><th>36</th><th>42</th><th>46</th></tr>
+                <tr><td>V1 (m/s)</td><td>434</td><td>423</td><td>464</td><td>427</td><td>619</td><td>430</td><td>426</td><td>427</td><td>410</td></tr>
+                <tr><td>V2 (m/s)</td><td>1067</td><td>1012</td><td>1085</td><td>985</td><td>1185</td><td>1100</td><td>1066</td><td>1005</td><td>974</td></tr>
+                <tr><td>h (m)</td><td>4.55</td><td>4.48</td><td>4.43</td><td>2.51</td><td>3.83</td><td>4.30</td><td>3.93</td><td>3.49</td><td>3.83</td></tr>
             </table>
-        </div>
-
-        <div id="summary" class="card">
-            <h2>計算邏輯與平均</h2>
-            <p><b>1. 臨界角計算：</b></p>
-            <p>使用公式： \(\theta_c = \arcsin(V1/V2)\)</p>
-            <p><b>2. 平均值統計：</b></p>
-            <div class="list-item">V1 平均：約 430 m/s</div>
-            <div class="list-item">V2 平均：約 1037 m/s</div>
-            <div class="list-item">臨界角：介於 23° ~ 25° 之間</div>
-        </div>
-
-        <div id="conclusion" class="card">
-            <h2>結論探討</h2>
-            <p>第一次計算時，表格數字誤差較大。第二次計算透過取更精確的讀數，除了炸點位置 24 公尺外，其餘直達波和折射波的速率誤差明顯縮小。</p>
-            <p>這顯示在讀取走時圖（Distance-Time Graph）時，精確標定初至波的時間（Picking first breaks）對於結果的影響極大。</p>
         </div>
 
         <div id="photos" class="card">
             <h2>實驗照片</h2>
-            <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_2.png" alt="實驗照片1" class="report-img">
-            <p class="img-caption">測線與接收器佈設</p>
-            
-            <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_3.png" alt="實驗照片2" class="report-img">
-            <p class="img-caption">人工震源擊發實作</p>
-            
-            <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_4.png" alt="實驗照片3" class="report-img">
-            <p class="img-caption">數據觀測與擷取</p>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_2.png" alt="照片1">
+                    <div class="photo-caption">測線與接收器佈設</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_3.png" alt="照片2">
+                    <div class="photo-caption">人工震源擊發</div>
+                </div>
+                <div class="photo-item">
+                    <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_4.png" alt="照片3">
+                    <div class="photo-caption">數據觀測與擷取</div>
+                </div>
+            </div>
         </div>
 
         <div id="feedback" class="card">
             <h2>組員心得</h2>
-            
-            <div class="feedback-box">
-                <span class="feedback-name">洪敏書</span>
-                <p>一開始看到這個實驗以為會很困難，但在了解原理後覺得非常有趣。在實作過程中，我發現接收器必須保持「垂直」埋入地面是非常重要的，否則會嚴重影響感應效果。雖然馬路上的車輛干擾很多，但能夠親自實作並學會如何看圖計算，真的非常有收穫。</p>
-            </div>
-
-            <div class="feedback-box">
-                <span class="feedback-name">李政皚</span>
-                <p>計算過程真的不容易，現場數據會受到很多外在因素影響，例如車子引擎震動、路面井蓋等干擾。但當我實際計算出我們所處位置的地層深度與速率時，這些數據不再只是課本上的練習題，而變成了真實的構造，感嘆物理與地球科學的神奇之處。</p>
-            </div>
-
-            <div class="feedback-box">
-                <span class="feedback-name">林靖融</span>
-                <p>這是我第一次參與地震物理實驗。實地操作讓我意識到野外調查會遇到非常多變數，尤其是都市環境中的雜訊干擾。這次實驗讓我了解了儀器是如何透過串聯來增加測量距離的上限，也解開了我對震測圖像呈現方式的許多疑惑，對專業領域有了更深的了解。</p>
-            </div>
+            <div class="feedback-box"><strong>洪敏書：</strong><p>了解原理後非常有趣。實驗中接收器必須保持垂直非常重要，馬路干擾雖多但實作收穫很多。</p></div>
+            <div class="feedback-box"><strong>李政皚：</strong><p>數據受環境因子影響大，但計算出地層真實數據時感嘆物理的神奇。</p></div>
+            <div class="feedback-box"><strong>林靖融：</strong><p>體會野外調查變數多，了解儀器串聯原理，解開對震測圖像呈現的疑惑。</p></div>
         </div>
     </main>
 
     <script>
         function showPage(pageId) {
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => card.classList.remove('active'));
-
-            const menuItems = document.querySelectorAll('.sidebar-menu li');
-            menuItems.forEach(item => item.classList.remove('active'));
-
+            document.querySelectorAll('.card').forEach(card => card.classList.remove('active'));
+            document.querySelectorAll('.sidebar-menu li').forEach(item => item.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-
-            const activeMenu = Array.from(menuItems).find(item => 
-                item.getAttribute('onclick').includes(pageId)
-            );
+            const activeMenu = Array.from(document.querySelectorAll('.sidebar-menu li')).find(item => item.getAttribute('onclick').includes(pageId));
             if(activeMenu) activeMenu.classList.add('active');
-
             window.scrollTo(0, 0);
         }
     </script>
