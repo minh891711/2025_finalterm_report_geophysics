@@ -17,32 +17,65 @@
         }
 
         .cyber-card {
-            background: rgba(30, 41, 59, 0.7);
+            background: rgba(15, 23, 42, 0.8);
             border: 1px solid rgba(59, 130, 246, 0.2);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            overflow: hidden; /* 確保內部分隔線不會超出 */
         }
 
         .cyber-card:hover {
-            transform: scale(1.03);
+            transform: translateY(-8px);
             border-color: #3b82f6;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-            background: rgba(30, 41, 59, 0.9);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
         }
 
-        .hw-link {
-            @apply flex items-center justify-center text-center py-3 px-4 bg-blue-500/10 hover:bg-blue-600 border border-blue-500/30 rounded-xl text-xs font-bold transition-all duration-300 w-full mb-2;
-            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        /* 專屬作業區塊樣式 */
+        .assignment-section {
+            background: rgba(30, 41, 59, 0.5);
+            border-top: 1px solid rgba(59, 130, 246, 0.3);
+            margin-top: auto; /* 推到卡片最底部 */
+        }
+
+        .hw-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 10px 14px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .hw-btn:hover {
+            background: rgba(59, 130, 246, 0.3);
+            border-color: #60a5fa;
+            transform: translateX(4px);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .hw-tag {
+            background: #22d3ee; /* 螢光青色 */
+            color: #020617;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 900;
+            font-size: 10px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            font-family: 'Orbitron';
         }
 
         /* 地球旋轉動畫 */
         .earth-container {
             position: relative;
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             margin: 0 auto;
         }
 
@@ -52,8 +85,8 @@
             background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Blue_Marble_2002.png/600px-Blue_Marble_2002.png');
             background-size: cover;
             border-radius: 50%;
-            box-shadow: inset -20px -20px 50px #000, 0 0 50px rgba(59, 130, 246, 0.5);
-            animation: rotateEarth 20s linear infinite;
+            box-shadow: inset -15px -15px 40px #000, 0 0 50px rgba(59, 130, 246, 0.3);
+            animation: rotateEarth 25s linear infinite;
         }
 
         @keyframes rotateEarth {
@@ -62,259 +95,315 @@
         }
 
         .glow-text {
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
         }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- 1. Hero Section -->
+    <!-- Hero Section -->
     <section class="min-h-screen flex flex-col justify-center items-center p-6 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-950 to-slate-950">
         <div class="earth-container mb-8">
             <div class="earth"></div>
         </div>
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text text-center tracking-wider" style="font-family: 'Orbitron';">GEOPHYSICS</h1>
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 glow-text text-center tracking-tighter" style="font-family: 'Orbitron';">GEOPHYSICS</h1>
+        <p class="text-xl md:text-2xl text-blue-400 font-light text-center mb-2">地球物理概論與資料處理實務</p>
+        <p class="text-lg text-slate-500 font-light mb-10 text-center tracking-widest italic">U11310029 洪敏書</p>
         
-        <p class="text-xl md:text-2xl text-blue-400 font-light text-center">地球物理概論與資料處理實務</p>
-        <!-- 新增文字行 -->
-        <p class="text-lg text-slate-400 font-light mb-10 text-center">U11310029 洪敏書</p>
-        
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="#syllabus" class="px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-bold transition shadow-[0_0_15px_rgba(37,99,235,0.4)]">進入課程表</a>
-            <a href="https://drive.google.com/file/d/11yCvPrtUAkvL9p4dHtB-r2FUgZH6z9fg/view?usp=sharing" target="_blank" class="px-8 py-3 border border-blue-500 hover:bg-blue-500/20 rounded-full font-bold transition">參考課本目錄</a>
-        </div>
-        <div class="mt-16 animate-bounce text-blue-500">
-            <i class="fas fa-chevron-down text-3xl"></i>
+        <div class="flex gap-4">
+            <a href="#syllabus" class="px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-bold transition shadow-lg">瀏覽週次大綱</a>
+            <a href="https://drive.google.com/file/d/11yCvPrtUAkvL9p4dHtB-r2FUgZH6z9fg/view?usp=sharing" target="_blank" class="px-8 py-3 border border-slate-700 hover:bg-slate-800 rounded-full font-bold transition">課程教科書</a>
         </div>
     </section>
 
-    <!-- 2. Intro Section -->
-    <section class="max-w-6xl mx-auto px-6 py-20">
-        <div class="grid md:grid-cols-2 gap-10 items-center">
-            <div class="space-y-6">
-                <h2 class="text-3xl font-bold border-l-4 border-blue-500 pl-4 uppercase">課程介紹</h2>
-                <p class="text-slate-400 text-lg leading-relaxed">
-                    本課程融合了傳統的地球科學物理理論與最前沿的 AI 資料處理技術。我們不僅學習如何解讀地球的訊息，更學習如何運用 Python 與 AI 工具來處理海量數據。
-                </p>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="p-4 bg-slate-900 rounded-lg border border-slate-800 text-center">
-                    <i class="fas fa-microchip text-blue-400 text-2xl mb-2"></i>
-                    <h3 class="font-bold text-white">AI 驅動</h3>
-                </div>
-                <div class="p-4 bg-slate-900 rounded-lg border border-slate-800 text-center">
-                    <i class="fas fa-wave-square text-green-400 text-2xl mb-2"></i>
-                    <h3 class="font-bold text-white">專業工具</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. Syllabus 18 Weeks Section -->
+    <!-- Syllabus Section -->
     <section id="syllabus" class="max-w-7xl mx-auto px-6 py-20">
-        <h2 class="text-4xl font-bold mb-16 text-center tracking-widest"><span class="text-blue-500 font-bold">18-WEEK</span> JOURNEY</h2>
+        <div class="flex justify-between items-end mb-16 border-b border-slate-800 pb-6">
+            <h2 class="text-4xl font-bold tracking-tighter italic">COURSE<span class="text-blue-500"> TIMELINE</span></h2>
+            <div class="text-slate-500 text-sm hidden md:block">滾動滑鼠查看 1~18 週作業與進度</div>
+        </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             <!-- Week 1 -->
-            <div class="cyber-card p-6 rounded-2xl relative">
-                <div>
-                    <div class="absolute -top-4 -right-2 bg-blue-600 px-4 py-1 rounded-full text-sm font-bold shadow-lg">9/10</div>
-                    <h3 class="text-blue-400 font-bold text-lg mb-4">W1: 課程介紹與環境架設</h3>
-                    <ul class="space-y-3 text-sm text-slate-400 mb-6">
-                        <li><i class="fas fa-globe mr-2 text-blue-500"></i>認識地球物理範疇</li>
-                        <li><i class="fas fa-code mr-2 text-green-500"></i>Python, HF, Dify, Github, Colab</li>
-                    </ul>
+            <div class="cyber-card rounded-2xl relative shadow-2xl">
+                <div class="p-6">
+                    <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">9/10 第 01 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4">課程介紹與環境架設</h3>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p><i class="fas fa-book-open mr-2 text-blue-400"></i>認識地球物理範疇</p>
+                        <p><i class="fas fa-terminal mr-2 text-green-400"></i>Python, HF, Dify, Colab</p>
+                    </div>
                 </div>
-                <a href="https://huggingface.co/spaces/minshu10/intro_geophysics" target="_blank" class="hw-link">HW1 地球物理概論HuggingFace</a>
+                <!-- 專屬作業區 -->
+                <div class="assignment-section p-4">
+                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                    <a href="https://huggingface.co/spaces/minshu10/intro_geophysics" target="_blank" class="hw-btn">
+                        <span class="hw-tag">HW1</span>
+                        <span class="text-xs font-semibold text-blue-200">地球物理概論HuggingFace</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Week 2 -->
-            <div class="cyber-card p-6 rounded-2xl relative">
-                <div>
-                    <div class="absolute -top-4 -right-2 bg-slate-700 px-4 py-1 rounded-full text-sm shadow-lg font-bold">9/17</div>
-                    <h3 class="text-blue-400 font-bold text-lg mb-4">W2: 折射探勘學基礎</h3>
-                    <ul class="space-y-3 text-sm text-slate-400 mb-6">
-                        <li><i class="fas fa-globe mr-2 text-blue-500"></i>折射探勘學原理</li>
-                        <li><i class="fas fa-code mr-2 text-green-500"></i>PyGMT, ObsPy, Streamlit</li>
-                    </ul>
+            <div class="cyber-card rounded-2xl relative shadow-2xl">
+                <div class="p-6">
+                    <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">9/17 第 02 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4">折射探勘學基礎</h3>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p><i class="fas fa-book-open mr-2 text-blue-400"></i>折射探勘學原理</p>
+                        <p><i class="fas fa-terminal mr-2 text-green-400"></i>PyGMT, ObsPy, Streamlit</p>
+                    </div>
                 </div>
-                <div class="flex flex-col">
-                    <a href="https://minh610.blogspot.com/2025/09/blog-post.html" target="_blank" class="hw-link">HW2 授課大綱GoogleBlogger</a>
-                    <a href="https://minh891711.github.io/2025_finalterm_report_geophysics/hw4.html" target="_blank" class="hw-link">HW4 推導折射公式</a>
+                <div class="assignment-section p-4">
+                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                    <a href="https://minh610.blogspot.com/2025/09/blog-post.html" target="_blank" class="hw-btn">
+                        <span class="hw-tag">HW2</span>
+                        <span class="text-xs font-semibold text-blue-200">授課大綱GoogleBlogger</span>
+                    </a>
+                    <a href="https://minh891711.github.io/2025_finalterm_report_geophysics/hw4.html" target="_blank" class="hw-btn">
+                        <span class="hw-tag">HW4</span>
+                        <span class="text-xs font-semibold text-blue-200">推導折射公式</span>
+                    </a>
                 </div>
             </div>
 
             <!-- Week 3 -->
-            <div class="cyber-card p-6 rounded-2xl relative border-orange-500/30">
-                <div>
-                    <div class="absolute -top-4 -right-2 bg-orange-600 px-4 py-1 rounded-full text-sm shadow-lg font-bold">9/24</div>
-                    <h3 class="text-orange-400 font-bold text-lg mb-4">W3: 校園野外實驗</h3>
-                    <p class="text-sm text-slate-400 italic mb-6"><i class="fas fa-campground mr-2"></i>實地操作：進行折射探勘實驗</p>
+            <div class="cyber-card rounded-2xl relative shadow-2xl border-orange-500/30">
+                <div class="p-6">
+                    <div class="text-orange-500 font-bold mb-1 tracking-widest text-xs uppercase">9/24 第 03 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4">校園野外實驗</h3>
+                    <p class="text-sm text-slate-400 mb-4 italic">實地操作：進行校園折射探勘實驗</p>
                 </div>
-                <a href="https://minh891711.github.io/2025_finalterm_report_geophysics/hw5.html" target="_blank" class="hw-link">HW5 震測實驗報告</a>
+                <div class="assignment-section p-4 bg-orange-950/10">
+                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                    <a href="https://minh891711.github.io/2025_finalterm_report_geophysics/hw5.html" target="_blank" class="hw-btn">
+                        <span class="hw-tag" style="background: #fb923c;">HW5</span>
+                        <span class="text-xs font-semibold text-orange-200">震測實驗報告</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Week 4 -->
-            <div class="cyber-card p-6 rounded-2xl relative border-purple-500/30">
-                <div>
-                    <div class="absolute -top-4 -right-2 bg-purple-600 px-4 py-1 rounded-full text-sm shadow-lg font-bold">10/1</div>
-                    <h3 class="text-purple-400 font-bold text-lg mb-4">W4: 專家專題演講</h3>
-                    <p class="text-sm font-bold text-white mb-2 italic text-center">甘禮有 博士</p>
-                    <p class="text-xs text-slate-400 border-t border-slate-700 pt-2 text-center mb-6 leading-relaxed">講題：地震層析成像</p>
+            <div class="cyber-card rounded-2xl relative shadow-2xl border-purple-500/30">
+                <div class="p-6 text-center">
+                    <div class="text-purple-500 font-bold mb-1 tracking-widest text-xs uppercase">10/01 第 04 週</div>
+                    <h3 class="text-white font-bold text-xl mb-2 italic">甘禮有 博士</h3>
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest border-b border-slate-800 pb-2 mb-4">專題演講</p>
+                    <p class="text-sm text-slate-400 leading-relaxed">講題：地震層析成像</p>
                 </div>
-                <a href="hw6.html" target="_blank" class="hw-link">HW6 演講心得</a>
+                <div class="assignment-section p-4 bg-purple-950/10">
+                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                    <a href="hw6.html" target="_blank" class="hw-btn">
+                        <span class="hw-tag" style="background: #c084fc;">HW6</span>
+                        <span class="text-xs font-semibold text-purple-200">演講心得</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Week 5 -->
-            <div class="cyber-card p-6 rounded-2xl relative">
-                <div>
-                    <div class="absolute -top-4 -right-2 bg-slate-700 px-4 py-1 rounded-full text-sm shadow-lg font-bold">10/8</div>
-                    <h3 class="text-blue-400 font-bold text-lg mb-4">W5: 折射探勘進階</h3>
-                    <ul class="space-y-3 text-sm text-slate-400 mb-6">
-                        <li><i class="fas fa-globe mr-2 text-blue-500"></i>折射探勘深論</li>
-                        <li><i class="fas fa-code mr-2 text-green-500"></i>HF Space 互動程式製作</li>
-                    </ul>
+            <div class="cyber-card rounded-2xl relative shadow-2xl">
+                <div class="p-6">
+                    <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">10/08 第 05 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4">折射探勘進階</h3>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p><i class="fas fa-book-open mr-2 text-blue-400"></i>折射探勘深論</p>
+                        <p><i class="fas fa-terminal mr-2 text-green-400"></i>HF Space 互動程式製作</p>
+                    </div>
                 </div>
-                <a href="https://minh891711.github.io/2025_finalterm_report_geophysics/hw3.html" target="_blank" class="hw-link">HW3 地震波形資料擷取與繪圖github-codespace</a>
+                <div class="assignment-section p-4">
+                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                    <a href="https://minh891711.github.io/2025_finalterm_report_geophysics/hw3.html" target="_blank" class="hw-btn">
+                        <span class="hw-tag">HW3</span>
+                        <span class="text-xs font-semibold text-blue-200 leading-tight">地震波形資料擷取與繪圖github-codespace</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Week 6 -->
-            <div class="cyber-card p-6 rounded-2xl relative">
-                <div>
-                    <div class="absolute -top-4 -right-2 bg-slate-700 px-4 py-1 rounded-full text-sm shadow-lg font-bold">10/15</div>
-                    <h3 class="text-blue-400 font-bold text-lg mb-4">W6: 重力探勘學 (I)</h3>
-                    <ul class="space-y-3 text-sm text-slate-400 mb-6">
-                        <li><i class="fas fa-globe mr-2 text-blue-500"></i>重力探勘學理論</li>
-                        <li><i class="fas fa-code mr-2 text-green-500"></i>Colab 使用實務</li>
-                    </ul>
+            <div class="cyber-card rounded-2xl relative shadow-2xl">
+                <div class="p-6">
+                    <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">10/15 第 06 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4">重力探勘學 (I)</h3>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p><i class="fas fa-book-open mr-2 text-blue-400"></i>重力探勘學理論基礎</p>
+                        <p><i class="fas fa-terminal mr-2 text-green-400"></i>Colab 使用實務</p>
+                    </div>
                 </div>
-                <a href="https://huggingface.co/spaces/minshu10/freeair_gravity" target="_blank" class="hw-link">HW8 重力探勘HuggingFace</a>
+                <div class="assignment-section p-4">
+                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                    <a href="https://huggingface.co/spaces/minshu10/freeair_gravity" target="_blank" class="hw-btn">
+                        <span class="hw-tag">HW8</span>
+                        <span class="text-xs font-semibold text-blue-200">重力探勘HuggingFace</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Week 7 -->
-            <div class="cyber-card p-6 rounded-2xl relative">
-                <div>
-                    <div class="absolute -top-4 -right-2 bg-slate-700 px-4 py-1 rounded-full text-sm shadow-lg font-bold">10/22</div>
-                    <h3 class="text-blue-400 font-bold text-lg mb-4">W7: 重力探勘學 (II)</h3>
-                    <ul class="space-y-3 text-sm text-slate-400 mb-6">
-                        <li><i class="fas fa-globe mr-2 text-blue-500"></i>重力異常分析</li>
-                        <li><i class="fas fa-code mr-2 text-green-500"></i>Gemini API, Dify</li>
-                    </ul>
+            <div class="cyber-card rounded-2xl relative shadow-2xl">
+                <div class="p-6">
+                    <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">10/22 第 07 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4">重力探勘學 (II)</h3>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p><i class="fas fa-book-open mr-2 text-blue-400"></i>重力異常分析與處理</p>
+                        <p><i class="fas fa-terminal mr-2 text-green-400"></i>Gemini API, Dify 應用</p>
+                    </div>
                 </div>
-                <div class="flex flex-col">
-                    <a href="https://minh891711.github.io/hw7_U11310029_calculate_gravity/" target="_blank" class="hw-link">HW7 重力測勘github-pages</a>
-                    <a href="https://minh891711.github.io/2025_finalterm_report_geophysics/hw9.html" target="_blank" class="hw-link">HW9 Dify</a>
+                <div class="assignment-section p-4">
+                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                    <a href="https://minh891711.github.io/hw7_U11310029_calculate_gravity/" target="_blank" class="hw-btn">
+                        <span class="hw-tag">HW7</span>
+                        <span class="text-xs font-semibold text-blue-200">重力測勘github-pages</span>
+                    </a>
+                    <a href="https://minh891711.github.io/2025_finalterm_report_geophysics/hw9.html" target="_blank" class="hw-btn">
+                        <span class="hw-tag">HW9</span>
+                        <span class="text-xs font-semibold text-blue-200">Dify 整合應用</span>
+                    </a>
                 </div>
             </div>
 
             <!-- Week 8 (Midterm) -->
-            <div class="cyber-card p-6 rounded-2xl relative bg-green-900/20 border-green-500">
-                <div class="absolute -top-4 -right-2 bg-green-600 px-4 py-1 rounded-full text-sm shadow-lg font-bold">10/29</div>
-                <h3 class="text-green-400 font-bold text-2xl mb-2 text-center">期中考</h3>
-                <p class="text-xs text-center text-slate-400 italic font-mono uppercase tracking-widest">Mid-term Examination</p>
+            <div class="cyber-card rounded-2xl relative shadow-2xl bg-green-950/20 border-green-500">
+                <div class="p-10 text-center">
+                    <div class="text-green-500 font-bold mb-2 tracking-widest text-sm uppercase">10/29 第 08 週</div>
+                    <h3 class="text-white font-bold text-3xl mb-4" style="font-family: 'Orbitron';">MIDTERM</h3>
+                    <p class="text-green-400 font-bold italic">期中考週</p>
+                </div>
             </div>
 
             <!-- Week 9 -->
-            <div class="cyber-card p-6 rounded-2xl relative">
-                <div class="absolute -top-4 -right-2 bg-slate-700 px-4 py-1 rounded-full text-sm shadow-lg font-bold">11/05</div>
-                <h3 class="text-blue-400 font-bold text-lg mb-4">W9: 板塊構造與地震 (I)</h3>
-                <ul class="space-y-3 text-sm text-slate-400 mb-6">
-                    <li><i class="fas fa-globe mr-2 text-blue-500"></i>板塊構造與地震</li>
-                    <li><i class="fas fa-code mr-2 text-green-500"></i>PyGMT 地圖繪製</li>
-                </ul>
+            <div class="cyber-card rounded-2xl relative shadow-2xl">
+                <div class="p-6">
+                    <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">11/05 第 09 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4">板塊構造與地震 (I)</h3>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p><i class="fas fa-book-open mr-2 text-blue-400"></i>板塊構造與地震關係</p>
+                        <p><i class="fas fa-terminal mr-2 text-green-400"></i>PyGMT 地圖繪製技術</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Week 10 -->
-            <div class="cyber-card p-6 rounded-2xl relative">
-                <div>
-                    <div class="absolute -top-4 -right-2 bg-slate-700 px-4 py-1 rounded-full text-sm shadow-lg font-bold">11/12</div>
-                    <h3 class="text-blue-400 font-bold text-lg mb-4">W10: 板塊構造與地震 (II)</h3>
-                    <ul class="space-y-3 text-sm text-slate-400 mb-6">
-                        <li><i class="fas fa-globe mr-2 text-blue-500"></i>地震觀測技術</li>
-                        <li><i class="fas fa-code mr-2 text-green-500"></i>PyGMT 數據視覺化</li>
-                    </ul>
+            <div class="cyber-card rounded-2xl relative shadow-2xl">
+                <div class="p-6">
+                    <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">11/12 第 10 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4">板塊構造與地震 (II)</h3>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p><i class="fas fa-book-open mr-2 text-blue-400"></i>地震觀測與機制分析</p>
+                        <p><i class="fas fa-terminal mr-2 text-green-400"></i>PyGMT 數據視覺化進階</p>
+                    </div>
                 </div>
-                <div class="flex flex-col">
-                    <a href="https://minh891711.github.io/plot_plate_boundary_pygmt/" target="_blank" class="hw-link">HW10 pygmt板塊邊界繪圖</a>
-                    <a href="https://minh891711.github.io/learning_pygmt/" target="_blank" class="hw-link">HW11 pygmt教學網站</a>
+                <div class="assignment-section p-4">
+                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                    <a href="https://minh891711.github.io/plot_plate_boundary_pygmt/" target="_blank" class="hw-btn">
+                        <span class="hw-tag">HW10</span>
+                        <span class="text-xs font-semibold text-blue-200">pygmt板塊邊界繪圖</span>
+                    </a>
+                    <a href="https://minh891711.github.io/learning_pygmt/" target="_blank" class="hw-btn">
+                        <span class="hw-tag">HW11</span>
+                        <span class="text-xs font-semibold text-blue-200">pygmt教學網站</span>
+                    </a>
                 </div>
             </div>
 
             <!-- Week 11 -->
-            <div class="cyber-card p-6 rounded-2xl relative">
-                <div class="absolute -top-4 -right-2 bg-slate-700 px-4 py-1 rounded-full text-sm shadow-lg font-bold">11/19</div>
-                <h3 class="text-blue-400 font-bold text-lg mb-4">W11: 板塊構造與地磁 (I)</h3>
-                <ul class="space-y-3 text-sm text-slate-400 mb-6">
-                    <li><i class="fas fa-globe mr-2 text-blue-500"></i>地球磁場基礎</li>
-                    <li><i class="fas fa-code mr-2 text-green-500"></i>ObsPy 地震波分析</li>
-                </ul>
+            <div class="cyber-card rounded-2xl relative shadow-2xl">
+                <div class="p-6">
+                    <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">11/19 第 11 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4">板塊構造與地磁 (I)</h3>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p><i class="fas fa-book-open mr-2 text-blue-400"></i>地球磁場與板塊運動</p>
+                        <p><i class="fas fa-terminal mr-2 text-green-400"></i>ObsPy 地震波形分析</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Week 12 -->
-            <div class="cyber-card p-6 rounded-2xl relative">
-                <div class="absolute -top-4 -right-2 bg-slate-700 px-4 py-1 rounded-full text-sm shadow-lg font-bold">11/26</div>
-                <h3 class="text-blue-400 font-bold text-lg mb-4">W12: 板塊構造與地磁 (II)</h3>
-                <ul class="space-y-3 text-sm text-slate-400 mb-6">
-                    <li><i class="fas fa-globe mr-2 text-blue-500"></i>古地磁與運動</li>
-                    <li><i class="fas fa-code mr-2 text-green-500"></i>ObsPy 實務練習</li>
-                </ul>
+            <div class="cyber-card rounded-2xl relative shadow-2xl">
+                <div class="p-6">
+                    <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">11/26 第 12 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4">板塊構造與地磁 (II)</h3>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p><i class="fas fa-book-open mr-2 text-blue-400"></i>古地磁學實務應用</p>
+                        <p><i class="fas fa-terminal mr-2 text-green-400"></i>ObsPy 資料處理進階</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Week 13 -->
-            <div class="cyber-card p-6 rounded-2xl relative">
-                <div class="absolute -top-4 -right-2 bg-slate-700 px-4 py-1 rounded-full text-sm shadow-lg font-bold">12/03</div>
-                <h3 class="text-blue-400 font-bold text-lg mb-4">W13: 板塊構造與地熱</h3>
-                <ul class="space-y-3 text-sm text-slate-400 mb-6">
-                    <li><i class="fas fa-globe mr-2 text-blue-500"></i>地熱資源探勘</li>
-                    <li><i class="fas fa-code mr-2 text-green-500"></i>Gemini API 與 Dify</li>
-                </ul>
+            <div class="cyber-card rounded-2xl relative shadow-2xl">
+                <div class="p-6">
+                    <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">12/03 第 13 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4">板塊構造與地熱</h3>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <p><i class="fas fa-book-open mr-2 text-blue-400"></i>地熱探勘與能量流動</p>
+                        <p><i class="fas fa-terminal mr-2 text-green-400"></i>Gemini API 與 Dify 實作</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Week 14 -->
-            <div class="cyber-card p-6 rounded-2xl relative border-purple-500/30">
-                <div>
-                    <div class="absolute -top-4 -right-2 bg-purple-600 px-4 py-1 rounded-full text-sm shadow-lg font-bold">12/10</div>
-                    <h3 class="text-purple-400 font-bold text-lg mb-4">W14: 專家專題演講</h3>
-                    <p class="text-sm font-bold text-white mb-2 italic text-center">黃有志 博士</p>
-                    <p class="text-xs text-slate-400 border-t border-slate-700 pt-2 text-center mb-6 leading-relaxed">從阿蘇火山、熊本地震至嘉南觀測</p>
+            <div class="cyber-card rounded-2xl relative shadow-2xl border-purple-500/30">
+                <div class="p-6 text-center">
+                    <div class="text-purple-500 font-bold mb-1 tracking-widest text-xs uppercase">12/10 第 14 週</div>
+                    <h3 class="text-white font-bold text-xl mb-2 italic">黃有志 博士</h3>
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest border-b border-slate-800 pb-2 mb-4">專題演講</p>
+                    <p class="text-sm text-slate-400">從阿蘇火山、熊本地震至嘉南觀測</p>
                 </div>
-                <a href="hw13.html" target="_blank" class="hw-link">HW13 演講心得</a>
+                <div class="assignment-section p-4 bg-purple-950/10">
+                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                    <a href="hw13.html" target="_blank" class="hw-btn">
+                        <span class="hw-tag" style="background: #c084fc;">HW13</span>
+                        <span class="text-xs font-semibold text-purple-200">演講心得</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Week 15 -->
-            <div class="cyber-card p-6 rounded-2xl relative border-purple-500/30">
-                <div>
-                    <div class="absolute -top-4 -right-2 bg-purple-600 px-4 py-1 rounded-full text-sm shadow-lg font-bold">12/17</div>
-                    <h3 class="text-purple-400 font-bold text-lg mb-4">W15: 專家專題演講</h3>
-                    <p class="text-sm font-bold text-white mb-2 italic text-center">廖勿渝 博士</p>
-                    <p class="text-xs text-slate-400 border-t border-slate-700 pt-2 text-center mb-6 leading-relaxed">AI 遇上地震學：深度學習自動監測</p>
+            <div class="cyber-card rounded-2xl relative shadow-2xl border-purple-500/30">
+                <div class="p-6 text-center">
+                    <div class="text-purple-500 font-bold mb-1 tracking-widest text-xs uppercase">12/17 第 15 週</div>
+                    <h3 class="text-white font-bold text-xl mb-2 italic">廖勿渝 博士</h3>
+                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest border-b border-slate-800 pb-2 mb-4">專題演講</p>
+                    <p class="text-sm text-slate-400">AI 遇上地震學：全自動化監測技術</p>
                 </div>
-                <a href="hw14.html" target="_blank" class="hw-link">HW14 演講心得</a>
+                <div class="assignment-section p-4 bg-purple-950/10">
+                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                    <a href="hw14.html" target="_blank" class="hw-btn">
+                        <span class="hw-tag" style="background: #c084fc;">HW14</span>
+                        <span class="text-xs font-semibold text-purple-200">演講心得</span>
+                    </a>
+                </div>
             </div>
 
             <!-- Week 16 (Final) -->
-            <div class="cyber-card p-6 rounded-2xl relative bg-green-900/20 border-green-500">
-                <div class="absolute -top-4 -right-2 bg-green-600 px-4 py-1 rounded-full text-sm shadow-lg font-bold">12/24</div>
-                <h3 class="text-green-400 font-bold text-2xl mb-2 text-center">期末專題發表</h3>
-                <p class="text-xs text-center text-slate-400 italic font-mono uppercase tracking-widest">Final Project Presentation</p>
+            <div class="cyber-card rounded-2xl relative shadow-2xl bg-green-950/20 border-green-500">
+                <div class="p-10 text-center">
+                    <div class="text-green-500 font-bold mb-2 tracking-widest text-sm uppercase">12/24 第 16 週</div>
+                    <h3 class="text-white font-bold text-3xl mb-4" style="font-family: 'Orbitron';">FINAL</h3>
+                    <p class="text-green-400 font-bold italic">期末專題發表</p>
+                </div>
             </div>
 
             <!-- Week 17 -->
-            <div class="cyber-card p-6 rounded-2xl relative border-sky-500/30">
-                <div class="absolute -top-4 -right-2 bg-sky-600 px-4 py-1 rounded-full text-sm shadow-lg font-bold">12/31</div>
-                <h3 class="text-sky-400 font-bold text-lg mb-4">W17: 實地參訪 (I)</h3>
-                <div class="p-3 bg-slate-800/50 rounded-lg text-center font-bold text-white flex items-center justify-center gap-2">
-                    <i class="fas fa-building"></i> 參訪中央氣象署
+            <div class="cyber-card rounded-2xl relative shadow-2xl border-sky-500/30">
+                <div class="p-6">
+                    <div class="text-sky-500 font-bold mb-1 tracking-widest text-xs uppercase">12/31 第 17 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4 flex items-center gap-2">
+                        <i class="fas fa-bus-alt"></i> 實地參訪 (I)
+                    </h3>
+                    <p class="text-sm text-slate-400">目的地：參訪中央氣象署</p>
                 </div>
             </div>
 
             <!-- Week 18 -->
-            <div class="cyber-card p-6 rounded-2xl relative border-sky-500/30">
-                <div class="absolute -top-4 -right-2 bg-sky-600 px-4 py-1 rounded-full text-sm shadow-lg font-bold">1/07</div>
-                <h3 class="text-sky-400 font-bold text-lg mb-4">W18: 實地參訪 (II)</h3>
-                <div class="p-3 bg-slate-800/50 rounded-lg text-center font-bold text-white text-xs leading-relaxed">
-                    參訪地質及礦業文化推廣中心
+            <div class="cyber-card rounded-2xl relative shadow-2xl border-sky-500/30">
+                <div class="p-6">
+                    <div class="text-sky-500 font-bold mb-1 tracking-widest text-xs uppercase">01/07 第 18 週</div>
+                    <h3 class="text-white font-bold text-xl mb-4 flex items-center gap-2">
+                        <i class="fas fa-bus-alt"></i> 實地參訪 (II)
+                    </h3>
+                    <p class="text-sm text-slate-400">目的地：參訪地質及礦業文化推廣中心</p>
                 </div>
             </div>
 
@@ -324,12 +413,7 @@
     <!-- Footer -->
     <footer class="bg-slate-950 border-t border-slate-900 py-16 text-center">
         <p class="text-slate-600 mb-6 tracking-[0.3em] text-[10px] uppercase font-bold">Geophysics & AI Data Skills Course 2024-2025</p>
-        <div class="flex justify-center gap-8 text-slate-500">
-            <i class="fab fa-python hover:text-blue-500 transition-colors text-xl"></i>
-            <i class="fab fa-github hover:text-white transition-colors text-xl"></i>
-            <i class="fas fa-microchip hover:text-green-500 transition-colors text-xl"></i>
-        </div>
-        <p class="mt-8 text-slate-700 text-[10px]">© 2025 Designed for Geophysics Students Portfolio</p>
+        <p class="text-slate-700 text-[10px] italic">專為地球物理課程設計的動態教學作品集</p>
     </footer>
 
 </body>
