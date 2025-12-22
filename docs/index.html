@@ -16,6 +16,7 @@
             scroll-behavior: smooth;
         }
 
+        /* 基礎卡片樣式 */
         .cyber-card {
             background: rgba(15, 23, 42, 0.8);
             border: 1px solid rgba(59, 130, 246, 0.2);
@@ -23,20 +24,26 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* 確保內部分隔線不會超出 */
+            overflow: hidden;
         }
 
-        .cyber-card:hover {
+        /* 一般週次的懸停效果 */
+        .cyber-card:not(.no-hover):hover {
             transform: translateY(-8px);
             border-color: #3b82f6;
             box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+        }
+
+        /* 靜態卡片：取消懸停效果 */
+        .no-hover {
+            cursor: default;
         }
 
         /* 專屬作業區塊樣式 */
         .assignment-section {
             background: rgba(30, 41, 59, 0.5);
             border-top: 1px solid rgba(59, 130, 246, 0.3);
-            margin-top: auto; /* 推到卡片最底部 */
+            margin-top: auto;
         }
 
         .hw-btn {
@@ -60,7 +67,7 @@
         }
 
         .hw-tag {
-            background: #22d3ee; /* 螢光青色 */
+            background: #22d3ee; 
             color: #020617;
             padding: 2px 6px;
             border-radius: 4px;
@@ -108,7 +115,7 @@
         </div>
         <h1 class="text-5xl md:text-7xl font-bold mb-4 glow-text text-center tracking-tighter" style="font-family: 'Orbitron';">GEOPHYSICS</h1>
         <p class="text-xl md:text-2xl text-blue-400 font-light text-center mb-2">地球物理概論與資料處理實務</p>
-        <p class="text-lg text-slate-500 font-light mb-10 text-center tracking-widest italic">U11310029 洪敏書</p>
+        <p class="text-lg text-slate-500 font-light mb-10 text-center tracking-widest italic">哈囉</p>
         
         <div class="flex gap-4">
             <a href="#syllabus" class="px-8 py-3 bg-blue-600 hover:bg-blue-500 rounded-full font-bold transition shadow-lg">瀏覽週次大綱</a>
@@ -120,7 +127,6 @@
     <section id="syllabus" class="max-w-7xl mx-auto px-6 py-20">
         <div class="flex justify-between items-end mb-16 border-b border-slate-800 pb-6">
             <h2 class="text-4xl font-bold tracking-tighter italic">COURSE<span class="text-blue-500"> TIMELINE</span></h2>
-            <div class="text-slate-500 text-sm hidden md:block">滾動滑鼠查看 1~18 週作業與進度</div>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -135,9 +141,7 @@
                         <p><i class="fas fa-terminal mr-2 text-green-400"></i>Python, HF, Dify, Colab</p>
                     </div>
                 </div>
-                <!-- 專屬作業區 -->
                 <div class="assignment-section p-4">
-                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
                     <a href="https://huggingface.co/spaces/minshu10/intro_geophysics" target="_blank" class="hw-btn">
                         <span class="hw-tag">HW1</span>
                         <span class="text-xs font-semibold text-blue-200">地球物理概論HuggingFace</span>
@@ -156,7 +160,6 @@
                     </div>
                 </div>
                 <div class="assignment-section p-4">
-                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
                     <a href="https://minh610.blogspot.com/2025/09/blog-post.html" target="_blank" class="hw-btn">
                         <span class="hw-tag">HW2</span>
                         <span class="text-xs font-semibold text-blue-200">授課大綱GoogleBlogger</span>
@@ -175,8 +178,7 @@
                     <h3 class="text-white font-bold text-xl mb-4">校園野外實驗</h3>
                     <p class="text-sm text-slate-400 mb-4 italic">實地操作：進行校園折射探勘實驗</p>
                 </div>
-                <div class="assignment-section p-4 bg-orange-950/10">
-                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                <div class="assignment-section p-4">
                     <a href="https://minh891711.github.io/2025_finalterm_report_geophysics/hw5.html" target="_blank" class="hw-btn">
                         <span class="hw-tag" style="background: #fb923c;">HW5</span>
                         <span class="text-xs font-semibold text-orange-200">震測實驗報告</span>
@@ -189,11 +191,9 @@
                 <div class="p-6 text-center">
                     <div class="text-purple-500 font-bold mb-1 tracking-widest text-xs uppercase">10/01 第 04 週</div>
                     <h3 class="text-white font-bold text-xl mb-2 italic">甘禮有 博士</h3>
-                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest border-b border-slate-800 pb-2 mb-4">專題演講</p>
-                    <p class="text-sm text-slate-400 leading-relaxed">講題：地震層析成像</p>
+                    <p class="text-sm text-slate-400">講題：地震層析成像</p>
                 </div>
-                <div class="assignment-section p-4 bg-purple-950/10">
-                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                <div class="assignment-section p-4">
                     <a href="hw6.html" target="_blank" class="hw-btn">
                         <span class="hw-tag" style="background: #c084fc;">HW6</span>
                         <span class="text-xs font-semibold text-purple-200">演講心得</span>
@@ -212,7 +212,6 @@
                     </div>
                 </div>
                 <div class="assignment-section p-4">
-                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
                     <a href="https://minh891711.github.io/2025_finalterm_report_geophysics/hw3.html" target="_blank" class="hw-btn">
                         <span class="hw-tag">HW3</span>
                         <span class="text-xs font-semibold text-blue-200 leading-tight">地震波形資料擷取與繪圖github-codespace</span>
@@ -231,7 +230,6 @@
                     </div>
                 </div>
                 <div class="assignment-section p-4">
-                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
                     <a href="https://huggingface.co/spaces/minshu10/freeair_gravity" target="_blank" class="hw-btn">
                         <span class="hw-tag">HW8</span>
                         <span class="text-xs font-semibold text-blue-200">重力探勘HuggingFace</span>
@@ -250,7 +248,6 @@
                     </div>
                 </div>
                 <div class="assignment-section p-4">
-                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
                     <a href="https://minh891711.github.io/hw7_U11310029_calculate_gravity/" target="_blank" class="hw-btn">
                         <span class="hw-tag">HW7</span>
                         <span class="text-xs font-semibold text-blue-200">重力測勘github-pages</span>
@@ -262,8 +259,8 @@
                 </div>
             </div>
 
-            <!-- Week 8 (Midterm) -->
-            <div class="cyber-card rounded-2xl relative shadow-2xl bg-green-950/20 border-green-500">
+            <!-- Week 8 (Midterm) - NO HOVER -->
+            <div class="cyber-card no-hover rounded-2xl relative shadow-2xl bg-green-950/20 border-green-500">
                 <div class="p-10 text-center">
                     <div class="text-green-500 font-bold mb-2 tracking-widest text-sm uppercase">10/29 第 08 週</div>
                     <h3 class="text-white font-bold text-3xl mb-4" style="font-family: 'Orbitron';">MIDTERM</h3>
@@ -294,7 +291,6 @@
                     </div>
                 </div>
                 <div class="assignment-section p-4">
-                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
                     <a href="https://minh891711.github.io/plot_plate_boundary_pygmt/" target="_blank" class="hw-btn">
                         <span class="hw-tag">HW10</span>
                         <span class="text-xs font-semibold text-blue-200">pygmt板塊邊界繪圖</span>
@@ -347,11 +343,9 @@
                 <div class="p-6 text-center">
                     <div class="text-purple-500 font-bold mb-1 tracking-widest text-xs uppercase">12/10 第 14 週</div>
                     <h3 class="text-white font-bold text-xl mb-2 italic">黃有志 博士</h3>
-                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest border-b border-slate-800 pb-2 mb-4">專題演講</p>
                     <p class="text-sm text-slate-400">從阿蘇火山、熊本地震至嘉南觀測</p>
                 </div>
-                <div class="assignment-section p-4 bg-purple-950/10">
-                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                <div class="assignment-section p-4">
                     <a href="hw13.html" target="_blank" class="hw-btn">
                         <span class="hw-tag" style="background: #c084fc;">HW13</span>
                         <span class="text-xs font-semibold text-purple-200">演講心得</span>
@@ -364,11 +358,9 @@
                 <div class="p-6 text-center">
                     <div class="text-purple-500 font-bold mb-1 tracking-widest text-xs uppercase">12/17 第 15 週</div>
                     <h3 class="text-white font-bold text-xl mb-2 italic">廖勿渝 博士</h3>
-                    <p class="text-xs text-slate-500 uppercase font-bold tracking-widest border-b border-slate-800 pb-2 mb-4">專題演講</p>
                     <p class="text-sm text-slate-400">AI 遇上地震學：全自動化監測技術</p>
                 </div>
-                <div class="assignment-section p-4 bg-purple-950/10">
-                    <p class="text-[10px] text-slate-500 font-bold mb-3 tracking-widest uppercase">作業與資源</p>
+                <div class="assignment-section p-4">
                     <a href="hw14.html" target="_blank" class="hw-btn">
                         <span class="hw-tag" style="background: #c084fc;">HW14</span>
                         <span class="text-xs font-semibold text-purple-200">演講心得</span>
@@ -376,8 +368,8 @@
                 </div>
             </div>
 
-            <!-- Week 16 (Final) -->
-            <div class="cyber-card rounded-2xl relative shadow-2xl bg-green-950/20 border-green-500">
+            <!-- Week 16 (Final) - NO HOVER -->
+            <div class="cyber-card no-hover rounded-2xl relative shadow-2xl bg-green-950/20 border-green-500">
                 <div class="p-10 text-center">
                     <div class="text-green-500 font-bold mb-2 tracking-widest text-sm uppercase">12/24 第 16 週</div>
                     <h3 class="text-white font-bold text-3xl mb-4" style="font-family: 'Orbitron';">FINAL</h3>
@@ -385,8 +377,8 @@
                 </div>
             </div>
 
-            <!-- Week 17 -->
-            <div class="cyber-card rounded-2xl relative shadow-2xl border-sky-500/30">
+            <!-- Week 17 - NO HOVER -->
+            <div class="cyber-card no-hover rounded-2xl relative shadow-2xl border-sky-500/30">
                 <div class="p-6">
                     <div class="text-sky-500 font-bold mb-1 tracking-widest text-xs uppercase">12/31 第 17 週</div>
                     <h3 class="text-white font-bold text-xl mb-4 flex items-center gap-2">
@@ -396,14 +388,14 @@
                 </div>
             </div>
 
-            <!-- Week 18 -->
-            <div class="cyber-card rounded-2xl relative shadow-2xl border-sky-500/30">
+            <!-- Week 18 - NO HOVER -->
+            <div class="cyber-card no-hover rounded-2xl relative shadow-2xl border-sky-500/30">
                 <div class="p-6">
                     <div class="text-sky-500 font-bold mb-1 tracking-widest text-xs uppercase">01/07 第 18 週</div>
                     <h3 class="text-white font-bold text-xl mb-4 flex items-center gap-2">
                         <i class="fas fa-bus-alt"></i> 實地參訪 (II)
                     </h3>
-                    <p class="text-sm text-slate-400">目的地：參訪地質及礦業文化推廣中心</p>
+                    <p class="text-sm text-slate-400">目的地：地質及礦業文化推廣中心</p>
                 </div>
             </div>
 
