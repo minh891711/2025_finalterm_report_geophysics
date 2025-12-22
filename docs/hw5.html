@@ -138,6 +138,11 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
+        /* 針對中間那張圖調整裁切範圍 */
+        .photo-item.center-img img {
+            object-position: center; /* 確保焦點在中間 */
+        }
+
         .img-caption {
             text-align: center;
             font-size: 0.85rem;
@@ -348,15 +353,12 @@
             <div class="photo-grid">
                 <div class="photo-item">
                     <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_2.png" alt="實驗照片1">
-                    <p class="img-caption">測線與接收器佈設</p>
                 </div>
-                <div class="photo-item">
+                <div class="photo-item center-img">
                     <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_3.png" alt="實驗照片2">
-                    <p class="img-caption">人工震源擊發實作</p>
                 </div>
                 <div class="photo-item">
                     <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW5_4.png" alt="實驗照片3">
-                    <p class="img-caption">數據觀測與擷取</p>
                 </div>
             </div>
         </div>
