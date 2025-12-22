@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地震波資料擷取與繪圖</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, "Microsoft JhengHei";
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #4CAF50; /* Green header */
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+        section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        h2 {
+            color: #2E8B57; /* Sea green for section titles */
+            border-bottom: 2px solid #D4EDDA; /* Light green border */
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        pre {
+            background-color: #272822; /* Dark background for code */
+            color: #f8f8f2; /* Light text for code */
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto; /* Enable horizontal scrolling for long lines */
+            font-family: "Fira Code", "Source Code Pro", monospace;
+            font-size: 0.95em;
+            line-height: 1.4;
+            tab-size: 4;
+        }
+        .code-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .image-caption {
+            font-size: 1em;
+            color: #555;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #777;
+            font-size: 0.85em;
+            border-top: 1px solid #e0e0e0;
+        }
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>地震波形資料擷取與繪圖</h1>
+        <p>使用 Obspy 函式庫抓取 FDSN 資料並繪製波形</p>
+    </header>
+
+    <section>
+        <h2>Python 程式碼</h2>
+        <p>以下程式碼展示如何使用 Obspy 函式庫從 IRIS FDSN 客戶端獲取地震波資料，並將其繪製成圖：</p>
+        <pre><code>from obspy import UTCDateTime, read
+from obspy.clients.fdsn import Client
+
+import matplotlib.pyplot as plt
+
+# 設定 IRIS FDSN client
+client = Client("IRIS")
+
+# 設定時間與持續秒數
+starttime = UTCDateTime("2025-10-07T23:52:12")
+duration = 120
+endtime = starttime + duration
+
+# 台灣常用測站 (例如: TW.TWGB)
+network = "TW"
+station = "NACB"    # 可改成其他台灣測站
+location = ""
+channel = "BHZ"     # 可改成其他通道
+
+# 抓取地震波資料
+st = client.get_waveforms(network, station, location, channel, starttime, endtime)
+
+# 畫圖並存檔
+fig = plt.figure()
+st.plot(outfile="/workspaces/geophysics-class-2025/notebooks/HW01_U11310029_waveform.png", fig=fig)
+plt.close(fig)
+</code></pre>
+        <div class="code-caption">程式碼片段：使用 Obspy 擷取及繪製地震波資料</div>
+    </section>
+
+    <section>
+        <h2>地震波形圖</h2>
+        <p>根據上述程式碼執行後所產生的地震波形圖：</p>
+        <div class="image-container">
+            <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/hw3_waveform.png" alt="地震波形圖">
+            <div class="image-caption">圖一：台灣測站 NACB 於指定時間範圍內的 BHZ 通道地震波形</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>地球物理學課程作業 | 2025</p>
+        <p><a href="https://github.com/minh891711/2025_finalterm_report_geophysics" target="_blank">查看相關 GitHub 儲存庫</a></p>
+    </footer>
+
+</body>
+</html>
