@@ -3,76 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HW13 | 黃有志博士專題演講心得</title>
+    <title>HW13 | 黃有志博士專題演講紀錄</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
         body { font-family: 'Noto Sans TC', sans-serif; background-color: #020617; color: #f1f5f9; }
-        .content-card { background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(16, 185, 129, 0.2); backdrop-filter: blur(10px); }
-        .highlight { color: #10b981; font-weight: bold; }
+        .qa-card { background: rgba(30, 41, 59, 0.4); border-left: 4px solid #3b82f6; transition: all 0.3s ease; }
+        .qa-card:hover { background: rgba(30, 41, 59, 0.7); transform: translateX(5px); }
+        .caldera-box { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); border: 1px border-blue-400/30; }
+        .highlight-orange { color: #fb923c; font-weight: bold; }
     </style>
 </head>
 <body class="p-6 md:p-12">
     <div class="max-w-4xl mx-auto">
         <!-- Back Button -->
-        <a href="index.html" class="inline-flex items-center text-emerald-400 hover:text-emerald-300 mb-8 transition">
+        <a href="index.html" class="inline-flex items-center text-blue-400 hover:text-blue-300 mb-8 transition">
             <i class="fas fa-arrow-left mr-2"></i> 返回主課程網頁
         </a>
 
-        <header class="mb-12 border-b border-emerald-500/30 pb-8">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-white">HW13：旅日經驗與地球物理實際應用</h1>
+        <header class="mb-12 border-b border-slate-700 pb-8">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-white">HW13：從阿蘇火山到嘉南觀測</h1>
+            <p class="text-blue-400 text-lg mb-4">談旅日經驗與地球物理學的實際應用</p>
             <div class="flex flex-wrap gap-4 text-sm">
-                <span class="bg-emerald-900/50 px-3 py-1 rounded-full border border-emerald-500/50 text-emerald-300">講者：黃有志 博士</span>
+                <span class="bg-blue-900/50 px-3 py-1 rounded-full border border-blue-500/50 text-blue-300">講者：黃有志 博士</span>
                 <span class="bg-slate-800 px-3 py-1 rounded-full text-slate-400">日期：2025/12/10</span>
             </div>
         </header>
 
-        <div class="space-y-8">
-            <!-- Part 1 -->
-            <section class="content-card p-6 rounded-2xl">
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-emerald-400">
-                    <i class="fas fa-microscope"></i> 地震層析與觀測基礎
-                </h2>
-                <p class="leading-relaxed text-slate-300">
-                    這次演講內容非常豐富，特別是結合了大量的圖片，讓複雜的科學內容變得易於理解且不枯燥。
-                    黃博士從層析成像的基本原理談起，詳細介紹了地震波在地球內部的傳遞機制，並清晰地拆解了 
-                    <span class="highlight">Source (震源)</span>、<span class="highlight">Structure (構造)</span> 與 <span class="highlight">Receiver (接收器)</span> 三者間的關係。
-                </p>
-                <p class="mt-4 leading-relaxed text-slate-300">
-                    最令我印象深刻的是 <span class="highlight">Forward Problem (正演)</span> 與 <span class="highlight">Inverse Problem (反演)</span> 的部分，
-                    因為這與我們第一週課程提到的模擬概念產生了強烈連結，讓我更能掌握實際應用中的計算邏輯。
-                </p>
-            </section>
-
-            <!-- Part 2 -->
-            <section class="content-card p-6 rounded-2xl border-blue-500/20">
-                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-blue-400">
-                    <i class="fas fa-globe-asia"></i> 臺灣與日本的地底視界
-                </h2>
-                <p class="leading-relaxed text-slate-300">
-                    演講末尾展示了臺灣地底深度的波速圖，可以清楚看到 <span class="text-blue-300">西部低速帶</span> 與 <span class="text-blue-300">中央山脈高速帶</span>（由變質岩組成）的對比，甚至還能辨識出大屯火山與龜山島的岩漿庫構造。
-                </p>
-                <div class="mt-4 bg-slate-900/80 p-5 rounded-xl border border-slate-700">
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        特別驚訝於一張關於板塊構造的細節圖：菲律賓海板塊隱沒至歐亞板塊下方時，中間展現出巨大的空間，
-                        而西南交界處的淺藍色部分則標示著海洋板塊的特徵。這與過去課本上的簡化圖示有很大的不同。
+        <!-- Q&A Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8 flex items-center gap-3 text-blue-300">
+                <i class="fas fa-comments"></i> 演講問答精選 (Q&A)
+            </h2>
+            
+            <div class="space-y-6">
+                <!-- Q1 -->
+                <div class="qa-card p-6 rounded-xl">
+                    <h3 class="font-bold text-white mb-3 text-lg">Q1: 同樣位處隱沒帶，為什麼台灣的火山不如日本活躍？</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        主因在於<span class="highlight-orange">火山特性不同</span>。阿蘇火山屬 Strombolian 式（週期數十年），櫻島則隨時噴發；台灣大屯火山雖無岩漿噴發，但仍有活躍地熱與水蒸氣爆發潛力。每個火山都有其獨特的活動節奏。
                     </p>
                 </div>
-            </section>
 
-            <!-- Summary -->
-            <section class="border-l-4 border-emerald-500 pl-6 my-12">
-                <h2 class="text-xl font-bold mb-3 italic text-emerald-100">心得總結</h2>
-                <p class="text-slate-400 leading-relaxed">
-                    雖然目前還有許多專業細節無法完全看透，但透過這次演講，我對阿蘇火山到嘉南地區的地震觀測實務有了全新的認識。
-                    這場演講讓我對地球物理知識的實際應用產生了更大的興趣，也期待未來能更深入地探索這個領域。
-                </p>
-            </section>
-        </div>
+                <!-- Q2 -->
+                <div class="qa-card p-6 rounded-xl">
+                    <h3 class="font-bold text-white mb-3 text-lg">Q2: 日本火山觀測中，氣象廳與大學研究所如何分工？</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        <span class="text-blue-300 font-semibold">日本氣象廳 (JMA)：</span> 負責 24 小時即時監視與預警發佈。<br>
+                        <span class="text-blue-300 font-semibold">京都大學防災研究所：</span> 專注於深入的科學研究與現場觀測數據分析。
+                    </p>
+                </div>
 
-        <footer class="mt-16 text-center text-slate-600 text-sm pb-12">
-            © 2025 地球物理課程筆記 | HW13 學習紀錄
+                <!-- Q3 -->
+                <div class="qa-card p-6 rounded-xl">
+                    <h3 class="font-bold text-white mb-3 text-lg">Q3: 熊本地震是否觸發了阿蘇火山活動？</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        地震隔天阿蘇火山確有小規模噴發，兩者在時間上<span class="highlight-orange">看起來有關聯</span>，但目前科學界僅能確認部分相關性，其餘機制尚不完全確定。
+                    </p>
+                </div>
+
+                <!-- Q4 -->
+                <div class="qa-card p-6 rounded-xl">
+                    <h3 class="font-bold text-white mb-3 text-lg">Q4: 嘉義台南近期地震活動是否異常？「序列」有何意義？</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        頻率雖高但<span class="highlight-orange">尚無異常</span>。地震序列是指在特定時空群集的地震，透過分析大地震帶出小地震的關聯性，能更精準掌握地殼應力釋放的規律。
+                    </p>
+                </div>
+
+                <!-- Q5 -->
+                <div class="qa-card p-6 rounded-xl">
+                    <h3 class="font-bold text-white mb-3 text-lg">Q5: 梅山斷層序列與熊本地震是否具有類似性？</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        雖然皆為走向滑移斷層，但熊本深度 7km、斷層長達 40-50km，<span class="highlight-orange">每條斷層特性各異</span>，無法將兩者直接等同比較。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Focus: Caldera -->
+        <section class="caldera-box p-8 rounded-3xl mb-16 shadow-2xl">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                <i class="fas fa-volcano"></i> 知識科普：Caldera vs Crater
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h4 class="text-xl font-bold text-blue-200 mb-2">破火口 (Caldera)</h4>
+                    <p class="text-slate-200 leading-relaxed mb-4">
+                        是指火山塌陷造成的巨大盆地，規模通常在 <span class="text-yellow-400 font-bold">2公里以上</span>，甚至可達數十公里。
+                    </p>
+                    <div class="bg-black/30 p-4 rounded-lg border border-white/10">
+                        <p class="text-sm"><span class="font-bold">阿蘇火山範例：</span><br>南北 25km x 東西 18km，是世界上規模最大的破火口之一。</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-mountain text-8xl text-blue-900/50 absolute opacity-20"></i>
+                    <div class="relative z-10 p-4 border-2 border-dashed border-blue-300/50 rounded-full w-48 h-48 flex items-center justify-center mx-auto">
+                        <span class="text-blue-100 font-bold italic text-lg">Huge Basin<br>> 2km</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflection -->
+        <section class="border-l-4 border-green-500 pl-6 mb-12">
+            <h2 class="text-2xl font-bold mb-4 text-green-400 italic">心得體悟</h2>
+            <p class="text-slate-300 leading-relaxed text-lg">
+                這次演講的內容讓我非常有感，特別是能聽懂的部分比上次更多了，成就感滿滿。對於「破火口」的巨大與完整性感到非常震撼，這不僅是地理名詞，更是地球釋放巨大能量後留下的痕跡。期待寒假的九州之行，能有機會親眼見證這座雄偉的阿蘇火山！
+            </p>
+        </section>
+
+        <footer class="mt-20 text-center text-slate-600 text-sm pb-12">
+            © 2025 地球物理課程筆記 | 跨國地質視野紀錄
         </footer>
     </div>
 </body>
