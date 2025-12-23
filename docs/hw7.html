@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重力異常計算結果</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .question-img-container {
+            text-align: center;
+            margin: 20px 0;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .question-img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .input-table, .output-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+        .input-table th, .input-table td, .output-table th, .output-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .input-table th {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .output-table th {
+            background-color: #d9edf7;
+            color: #31708f;
+        }
+        #output-log {
+            background-color: #eef;
+            color: #333;
+            border-left: 5px solid #3498db;
+        }
+        .highlight {
+            color: #e67e22;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 重力異常計算結果</h1>
 
+        <h2>📝 題目說明</h2>
+        <div class="question-img-container">
+            <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW7.png" alt="重力異常計算題目">
+        </div>
+
+        <h2>💻 Python 程式碼</h2>
+        <pre>
+import numpy as np
+lon = 12.1878; lat = 48.1195; ele = 487.9; G0 = 980717.39
+Ge = 978031.85;
+fac = np.pi / 180.0  # 度轉徑度
+
+# a-1: 理論重力 Gt
+Gt = Ge*(1+0.005278895*np.sin(lat*fac)**2+0.000023462*np.sin(lat*fac)**4)
+
+# a-2: 自由空氣改正量 FAC
+FAC = ele*(0.308)
+
+# a-3: 布格改正量 BC (假設密度為 2.67 g/cm^3 時的標準值: 0.1119 * ele, 程式中使用 0.112)
+BC = ele*(0.112)
+
+# a-4: 自由空氣重力異常 Gfa
+Gfa = (G0 + FAC) - Gt
+
+# a-5: 布格重力異常 Gb
+Gb = Gfa - BC
+
+# b: 簡單的自由空氣異常 gfa
+gfa = G0 - Gt
+
+# b: 簡單的布格改正 bc (程式中使用的值: -0.0687 * ele)
+bc = ele*(-0.0687) 
+
+# b: 簡單的布格重力異常 gb
+gb = gfa - bc
+        </pre>
+
+        <h2>📥 輸入參數</h2>
+        <table class="input-table">
+            <tr><th>參數名稱</th><th>變數</th><th>值</th></tr>
+            <tr><td>經度</td><td>lon</td><td>12.1878</td></tr>
+            <tr><td>緯度</td><td>lat</td><td>48.1195</td></tr>
+            <tr><td>海拔高度 (m)</td><td>ele</td><td>487.9</td></tr>
+            <tr><td>觀測重力值 (mGal)</td><td>G0</td><td>980717.39</td></tr>
+            <tr><td>赤道標準重力值 (mGal)</td><td>Ge</td><td>978031.85</td></tr>
+        </table>
+
+        <h2>📊 計算結果 (來自程式輸出)</h2>
+        <pre id="output-log">
+theoretical gravity : 980598.6756209598
+FAC : 150.2132
+BC : 54.6448
+Gfa : 269.0475790401779
+Gb : 214.40277904017792
+gfa : 118.7143790401779
+bc : -33.52953
+gb : 152.2439090401779
+        </pre>
+
+        <p><em>註：以上計算結果是基於原始 Python 程式碼的邏輯和提供的輸入參數計算得出的，結果單位為 <span class="highlight">mGal (毫伽)</span>。</em></p>
+    </div>
+</body>
+</html>
