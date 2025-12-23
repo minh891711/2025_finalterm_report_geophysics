@@ -55,6 +55,6 @@
     > - 若點下「布蓋重力」，則進入子網頁：`https://oceanicdayi.blogspot.com/2025/10/1015-3.html`
 
 ---
-**Author:** 洪敏書 (Minh Shu Hung)  
+**Author:** 洪敏書  
 **Year:** 2025  
 **Course:** 地球物理學 (Geophysics)# 2025_finalterm_report_geophysics
