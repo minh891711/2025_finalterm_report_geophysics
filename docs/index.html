@@ -252,7 +252,7 @@
             <!-- Week 6 -->
             <div id="week6-card" class="cyber-card rounded-2xl relative shadow-2xl cursor-pointer" onclick="toggleW6Options(event)">
     
-                <!-- 預設內容 -->
+                <!-- 預設顯示的內容 -->
                 <div id="w6-main-content" class="p-6 transition-opacity duration-300">
                     <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">10/15 第 06 週</div>
                     <h3 class="text-white font-bold text-xl mb-4">重力探勘學 (I)</h3>
@@ -263,16 +263,18 @@
                     <p class="text-[10px] text-blue-400 mt-4 animate-pulse"><i class="fas fa-mouse-pointer mr-1"></i> 點擊卡片開啟詳細單元</p>
                 </div>
 
-                <!-- 選項遮罩 (這裡將內容稍微往上推，避免靠底) -->
+                <!-- 點擊後出現的選項遮罩 -->
                 <div id="w6-options" class="options-overlay absolute inset-0 opacity-0 pointer-events-none flex flex-col justify-center p-6 z-30">
                     <div class="text-blue-400 text-[10px] font-bold mb-4 tracking-widest uppercase text-center border-b border-blue-500/30 pb-2">請選擇單元</div>
                     <a href="https://oceanicdayi.blogspot.com/2025/10/1015-1.html" target="_blank" class="hw-btn text-center justify-center py-2 mb-2 hover:scale-105">重力探勘介紹</a>
                     <a href="https://oceanicdayi.blogspot.com/2025/10/1015-2.html" target="_blank" class="hw-btn text-center justify-center py-2 mb-2 hover:scale-105">理論重力與自由空間重力</a>
                     <a href="https://oceanicdayi.blogspot.com/2025/10/1015-3.html" target="_blank" class="hw-btn text-center justify-center py-2 mb-4 hover:scale-105">布蓋重力</a>
-                    <button onclick="toggleW6Options(event)" class="text-slate-500 text-[10px] hover:text-white transition">返回</button>
+        
+                    <!-- 返回按鈕：移除 onclick，讓它透過冒泡觸發卡片點擊 -->
+                    <button class="return-btn text-slate-500 text-[10px] hover:text-white transition uppercase tracking-widest font-bold">按此返回</button>
                 </div>
 
-                <!-- HW8 區域：添加 ID 並加上淡出動畫效果 -->
+                <!-- HW8 區域 -->
                 <div id="w6-assignment" class="assignment-section p-4 relative z-40 transition-opacity duration-300">
                     <a href="https://huggingface.co/spaces/minshu10/freeair_gravity" target="_blank" class="hw-btn">
                         <span class="hw-tag">HW8</span>
@@ -280,7 +282,6 @@
                     </a>
                 </div>
             </div>
-
             <!-- Week 7 -->
             <div class="cyber-card rounded-2xl relative shadow-2xl">
                 <div class="p-6">
@@ -456,24 +457,29 @@
         function toggleW6Options(event) {
             const overlay = document.getElementById('w6-options');
             const mainContent = document.getElementById('w6-main-content');
-            const assignmentSection = document.getElementById('w6-assignment'); // 新增這行
+            const assignmentSection = document.getElementById('w6-assignment');
         
-            if (event.target.tagName === 'A' || event.target.closest('.hw-btn')) {
+            // 高手級判斷：如果點擊的是 <a> 標籤，或者是帶有 hw-tag 的作業按鈕，就直接退出，不切換選單
+            if (event.target.closest('a') || event.target.closest('.hw-btn')) {
+                // 如果點擊的是選單內的連結，讓它跳轉；如果是 HW8，也讓它跳轉
                 return;
             }
 
+            // 檢查選單目前是否顯示
             const isShowing = overlay.classList.contains('opacity-100');
 
             if (!isShowing) {
+                // 開啟選單
                 overlay.classList.remove('opacity-0', 'pointer-events-none');
                 overlay.classList.add('opacity-100', 'pointer-events-auto');
                 mainContent.classList.add('opacity-0');
-                assignmentSection.classList.add('opacity-0', 'pointer-events-none'); // 隱藏 HW8 按鈕區域
+                assignmentSection.classList.add('opacity-0', 'pointer-events-none');
             } else {
+                // 關閉選單（返回）
                 overlay.classList.add('opacity-0', 'pointer-events-none');
                 overlay.classList.remove('opacity-100', 'pointer-events-auto');
                 mainContent.classList.remove('opacity-0');
-                assignmentSection.classList.remove('opacity-0', 'pointer-events-none'); // 恢復 HW8 按鈕區域
+                assignmentSection.classList.remove('opacity-0', 'pointer-events-none');
             }
         }
     </script>
