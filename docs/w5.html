@@ -1,1 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期中考題說明 - 震測 3 題</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        .question-section {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .question-header {
+            background-color: #34495e;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+        .question-header:hover {
+            background-color: #2c3e50;
+        }
+        .content {
+            padding: 20px;
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        .img-container {
+            text-align: center;
+            margin: 10px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .ans-label {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 3px;
+            margin-top: 20px;
+        }
+        /* 索引區樣式 */
+        .index-section {
+            margin-top: 40px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px dashed #7f8c8d;
+        }
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .index-item {
+            text-align: center;
+        }
+        .index-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .index-item img:hover {
+            transform: scale(1.05);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+<body>
 
+    <h1>期中考題說明 - 震測複習</h1>
+
+    <div class="question-section">
+        <div class="question-header" onclick="toggleContent('q1')">
+            <span>第一題：震測基礎概念</span>
+            <span>▼</span>
+        </div>
+        <div id="q1" class="content">
+            <strong>【題目】</strong>
+            <div class="img-container">
+                <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_1.jpeg" alt="Q1">
+            </div>
+            <span class="ans-label">答案說明</span>
+            <div class="img-container">
+                <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_2.jpeg" alt="A1">
+            </div>
+        </div>
+    </div>
+
+    <div class="question-section">
+        <div class="question-header" onclick="toggleContent('q2')">
+            <span>第二題：震測波形分析</span>
+            <span>▼</span>
+        </div>
+        <div id="q2" class="content">
+            <strong>【題目】</strong>
+            <div class="img-container">
+                <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_10.jpeg" alt="Q2">
+            </div>
+            <span class="ans-label">答案說明</span>
+            <div class="img-container">
+                <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_11.jpeg">
+                <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_12.jpeg">
+                <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_13.jpeg">
+            </div>
+        </div>
+    </div>
+
+    <div class="question-section">
+        <div class="question-header" onclick="toggleContent('q3')">
+            <span>第三題：綜合應用題</span>
+            <span>▼</span>
+        </div>
+        <div id="q3" class="content">
+            <strong>【題目】</strong>
+            <div class="img-container">
+                <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_19.jpeg" alt="Q3">
+            </div>
+            <span class="ans-label">答案說明</span>
+            <div class="img-container">
+                <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_20.jpeg" alt="A3">
+            </div>
+        </div>
+    </div>
+
+    <div class="index-section">
+        <h3>參考資料圖片索引 (點擊可放大)</h3>
+        <div class="index-grid">
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_3.jpeg" onclick="openModal(this.src)"></div>
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_4.jpeg" onclick="openModal(this.src)"></div>
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_5.jpeg" onclick="openModal(this.src)"></div>
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_6.jpeg" onclick="openModal(this.src)"></div>
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_7.jpeg" onclick="openModal(this.src)"></div>
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_8.jpeg" onclick="openModal(this.src)"></div>
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_9.jpeg" onclick="openModal(this.src)"></div>
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_14.jpeg" onclick="openModal(this.src)"></div>
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_15.jpeg" onclick="openModal(this.src)"></div>
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_16.jpeg" onclick="openModal(this.src)"></div>
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_17.jpeg" onclick="openModal(this.src)"></div>
+            <div class="index-item"><img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/W5_18.jpeg" onclick="openModal(this.src)"></div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal" onclick="this.style.display='none'">
+        <img id="modalImg">
+    </div>
+
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+
+        function openModal(src) {
+            document.getElementById('myModal').style.display = "flex";
+            document.getElementById('modalImg').src = src;
+        }
+    </script>
+
+</body>
+</html>
