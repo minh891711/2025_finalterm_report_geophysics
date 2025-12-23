@@ -1,1 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cocos 板塊專題研究</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex; /* 使用 Flexbox 讓側邊欄與內容並排 */
+            background-color: #f4f7f6;
+            color: #333;
+        }
 
+        /* 側邊導覽列樣式 */
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ecf0f1;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: #bdc3c7;
+            display: block;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .sidebar a:hover {
+            background-color: #34495e;
+            color: #fff;
+        }
+
+        .sidebar a.active {
+            background-color: #007bff;
+            color: white;
+            border-left: 5px solid #28a745;
+        }
+
+        /* 主要內容區域區域 */
+        .main-content {
+            margin-left: 250px; /* 預留側邊欄空間 */
+            flex-grow: 1;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 控制內容頁面的顯示與隱藏 */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* 原有樣式保留並調整 */
+        h1 { color: #007bff; border-bottom: 3px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #28a745; border-left: 5px solid #28a745; padding-left: 10px; margin-top: 25px; }
+        h3 { color: #6c757d; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #e9ecef; }
+        ul { padding-left: 20px; }
+        .note { background-color: #ffeeba; border-left: 5px solid #ffc107; padding: 15px; border-radius: 4px; }
+        .step-box { margin-bottom: 30px; padding: 20px; background: #fafafa; border-radius: 8px; border: 1px solid #eee; }
+        .step-title { font-weight: bold; color: #d9534f; display: block; margin-bottom: 10px; }
+        .step-img { max-width: 100%; height: auto; display: block; margin: 15px auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+        .intro-img { max-width: 90%; height: auto; display: block; margin: 20px auto; border-radius: 4px; }
+        .code-link { display: inline-block; background-color: #333; color: #fff; padding: 8px 15px; text-decoration: none; border-radius: 4px; margin-bottom: 20px; }
+
+        /* 手機版適應 */
+        @media screen and (max-width: 768px) {
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main-content { margin-left: 0; padding: 20px; }
+            body { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <h2>Cocos 板塊研究</h2>
+        <a onclick="showPage('intro')" id="link-intro" class="active">🏠 板塊介紹與地貌</a>
+        <a onclick="showPage('pygmt')" id="link-pygmt">🎨 PyGMT 繪圖過程</a>
+    </nav>
+
+    <main class="main-content">
+        
+        <section id="intro" class="page active">
+            <div class="container">
+                <h1>🌎 Cocos 板塊介紹與地貌 (The Cocos Plate)</h1>
+                <h2>板塊介紹 (Introduction)</h2>
+                <p>科科斯板塊是一個<strong>小型</strong>的<strong>大洋</strong>構造板塊，位於太平洋東部，緊鄰中美洲西海岸。</p>
+                <ul>
+                    <li><strong>名稱由來：</strong> 以科科斯島（Cocos Island）命名。</li>
+                    <li><strong>形成：</strong> 約 2300 萬年前，由法拉隆板塊破裂而成。</li>
+                    <li><strong>相對運動：</strong> 朝向東北方移動，並在中美洲下方隱沒。</li>
+                </ul>
+                <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW10_1.jpg" alt="Global Location" class="intro-img">
+                
+                <hr>
+                <h2>🗺️ 板塊邊界種類與地形景觀</h2>
+                <h3>1. 會聚邊界 - 隱沒帶</h3>
+                <table>
+                    <thead>
+                        <tr><th>接壤板塊</th><th>方式</th><th>地貌</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>北美洲/加勒比海板塊</td>
+                            <td>隱沒作用</td>
+                            <td>中美洲海溝、中美洲火山弧</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2. 離散邊界 - 洋脊</h3>
+                <table>
+                    <thead>
+                        <tr><th>接壤板塊</th><th>方式</th><th>地貌</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>太平洋板塊</td><td>海床擴張</td><td>東太平洋海隆 (EPR)</td></tr>
+                        <tr><td>納斯卡板塊</td><td>分離運動</td><td>加拉巴哥海隆</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="note">
+                    <strong>💡 總結：</strong> 科科斯板塊的隱沒作用是造成中美洲強烈地震與火山活動的主因。
+                </div>
+            </div>
+        </section>
+
+        <section id="pygmt" class="page">
+            <div class="container">
+                <h1>🎨 PyGMT 繪圖過程詳解</h1>
+                <p>透過 Python 的 PyGMT 套件，我們能精確地繪製出 Cocos 板塊的地質細節。</p>
+                <a href="https://github.com/minh891711/plot_plate_boundary_pygmt/blob/main/pygmt_plot_plate_boundary.ipynb" target="_blank" class="code-link">🔗 查看完整程式碼 (Notebook)</a>
+
+                <div class="step-box">
+                    <span class="step-title">STEP 1: 初步繪製 Cocos 板塊範圍</span>
+                    <p>設定經緯度座標，標記出科科斯板塊在東太平洋與中美洲交界的地理位置。</p>
+                    <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW10_2.png" alt="STEP 1" class="step-img">
+                </div>
+
+                <div class="step-box">
+                    <span class="step-title">STEP 2: 疊加火山、地震與歷史震點</span>
+                    <p>將中美洲火山弧、頻繁小型地震以及歷史強震位置精確標註。</p>
+                    <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW10_3.png" alt="STEP 2" class="step-img">
+                </div>
+
+                <div class="step-box">
+                    <span class="step-title">STEP 3: 引入全球地形模型 (ETOPOn)</span>
+                    <p>讓海溝與洋脊地形更加立體，呈現中美洲海溝的深邃度。</p>
+                    <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW10_4.png" alt="STEP 3" class="step-img">
+                </div>
+
+                <div class="step-box">
+                    <span class="step-title">STEP 4: 最終高解析度版本</span>
+                    <p>調整參數完整呈現 Cocos 板塊隱沒系統的地貌全景。</p>
+                    <img src="https://raw.githubusercontent.com/minh891711/2025_finalterm_report_geophysics/main/picture/HW10_5.png" alt="最終版本" class="step-img">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function showPage(pageId) {
+            // 隱藏所有頁面
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // 移除所有導覽連結的 active 樣式
+            const links = document.querySelectorAll('.sidebar a');
+            links.forEach(link => link.classList.remove('active'));
+
+            // 顯示指定頁面
+            document.getElementById(pageId).classList.add('active');
+
+            // 幫點選的連結加上 active 樣式
+            document.getElementById('link-' + pageId).classList.add('active');
+            
+            // 點擊後自動捲動到頂部
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+</html>
