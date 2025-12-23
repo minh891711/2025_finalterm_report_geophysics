@@ -1,1 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PyGMT 快速入門</title>
+  <meta name="description" content="用 Python 幾行程式碼畫出論文級地圖"/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root{--bg:#0d0d0d;--primary:#00d4ff;--accent:#ff6b35;--text:#d0d0d0;--gray:#999;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC','Inter',sans-serif;line-height:1.75;font-size:16px;padding-top:70px;}
+    .container{max-width:1000px;margin:0 auto;padding:0 20px;}
 
+    nav{position:fixed;top:0;left:0;width:100%;background:rgba(10,10,10,0.95);backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(0,212,255,0.3);z-index:1000;padding:12px 0;}
+    nav ul{display:flex;justify-content:center;flex-wrap:wrap;gap:2rem;list-style:none;font-size:1rem;}
+    nav a{color:var(--text);text-decoration:none;padding:6px 12px;border-radius:6px;transition:.3s;}
+    nav a:hover{background:rgba(0,212,255,0.2);color:var(--primary);}
+
+    .hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#0a0a0a,#1a1a2e);text-align:center;padding:2rem 0;}
+    .glow-text{font-size:clamp(2.8rem,7vw,5rem);font-weight:700;background:linear-gradient(90deg,#00d4ff,#ff6b35,#00d4ff);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200%;animation:shine 8s infinite linear;margin-bottom:1rem;}
+    @keyframes shine{0%{background-position:0%}100%{background-position:200%}}
+
+    .intro-box{background:rgba(255,255,255,0.07);border-radius:16px;padding:2rem 2.5rem;margin:2.5rem auto;max-width:860px;font-size:1.05rem;border:1px solid rgba(0,212,255,0.25);box-shadow:0 10px 30px rgba(0,0,0,0.4);}
+
+    section{padding:80px 0;}
+    h2{font-size:2.2rem;text-align:center;margin-bottom:2.5rem;background:linear-gradient(to right,var(--primary),#fff);-webkit-background-clip:text;color:transparent;}
+
+    .highlight-example{background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(255,107,53,0.08));padding:3.5rem 0;text-align:center;}
+    .example-image{max-width:90%;max-height:700px;border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,0.6);border:2px solid var(--primary);margin:2rem auto;display:block;transition:.4s;}
+    .example-image:hover{transform:scale(1.03);}
+
+    .code-block{background:#1a1a1a;color:#00ff9d;padding:1.4rem 1.8rem;border-radius:10px;font-size:1.05rem;max-width:800px;margin:2rem auto;border-left:4px solid var(--primary);white-space:pre-wrap;overflow-x:auto;box-shadow:0 8px 25px rgba(0,0,0,0.5);}
+
+    .btn{display:inline-block;padding:0.9rem 2.2rem;background:transparent;color:var(--primary);border:2px solid var(--primary);border-radius:30px;text-decoration:none;transition:.3s;margin:0.8rem;}
+    .btn:hover{background:var(--primary);color:#000;}
+
+    footer{text-align:center;padding:2.5rem 0;background:rgba(0,0,0,0.5);font-size:0.95rem;color:var(--gray);}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#intro">PyGMT 是什麼</a></li>
+      <li><a href="#ex1">全球地形</a></li>
+      <li><a href="#ex2">海底等高線</a></li>
+      <li><a href="#ex3">3D 地形</a></li>
+      <li><a href="#ex4">海岸線＋小地圖</a></li>
+      <li><a href="#install">開始使用</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <div class="container">
+      <h1 class="glow-text">PyGMT 快速入門</h1>
+
+      <!-- 調整後的介紹段 -->
+      <div id="intro" class="intro-box">
+        <h3 style="text-align:center;color:var(--primary);margin-bottom:1rem;font-size:1.4rem;">
+          PyGMT 是什麼？為什麼你會愛上它？
+        </h3>
+        
+        <p style="font-size:1.1rem;margin:1.2rem 0;">
+          簡單說：PyGMT＝<strong>GMT 全部功能＋純 Python 語法</strong><br>
+          你原本要花好幾十行 GMT 指令才能畫出的論文級地圖，現在用 Python 幾行就搞定！
+        </p>
+
+        <div style="background:rgba(0,212,255,0.15);padding:1.5rem;border-radius:12px;margin:1.8rem 0;font-size:1.05rem;">
+          <p style="margin:0.8rem 0;">
+            完全支援 NumPy、Pandas、Xarray<br>
+            直接在 Jupyter Notebook 裡「改參數 → 立刻看結果」<br>
+            內建全球高解析度地形、海齡、衛星圖……完全不用自己下載！
+          </p>
+        </div>
+
+        <p style="margin:1.8rem 0 1rem 0;font-weight:600;color:var(--accent);">
+          哪些人最適合學 PyGMT？
+        </p>
+        
+        <ol style="margin:1rem 0;padding-left:1.8rem;line-height:2;">
+          <li>手邊有大量的地理數據需要呈現在地圖上</li>
+          <li>時常繪製地圖，並且總是覺得使用 GIS 軟體效率太低</li>
+          <li>需要即時或互動性呈現地理資料分析的結果</li>
+        </ol>
+
+        <p style="text-align:center;margin:2rem 0 0 0;padding:1.5rem;background:rgba(255,107,53,0.15);border-radius:12px;font-size:1.2rem;font-weight:600;color:var(--primary);">
+          用 Python 的語法，畫出比商業軟體還專業的地圖 —— 這就是 PyGMT
+        </p>
+      </div>
+
+      <iframe width="100%" height="500" style="max-width:860px;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,0.6);" 
+              src="https://www.youtube.com/embed/Kb6TYvZcI_c" title="PyGMT 官方入門影片" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- 以下四個範例區塊完全不變 -->
+  <section id="ex1" class="highlight-example">
+    <div class="container">
+      <h2>全球地形熱圖（Robinson 投影）</h2>
+      <p style="font-size:1.25rem;color:var(--primary);max-width:800px;margin:0 auto 1.8rem;">三行程式碼，無需下載資料，即可繪製專業級全球地形</p>
+      <img src="./assert/螢幕擷取畫面 2025-11-28 211511.png" alt="全球地形" class="example-image" loading="lazy">
+      <div class="code-block">fig = pygmt.Figure()
+fig.grdimage(grid=grid, projection="R12c")
+fig.show()</div>
+    </div>
+  </section>
+
+  <section id="ex2" class="highlight-example">
+    <div class="container">
+      <h2>海底地形 + 等高線 + 色階條</h2>
+      <p style="font-size:1.25rem;color:var(--primary);max-width:800px;margin:0 auto 1.8rem;">haxby 配色 + grdcontour，輕鬆做出論文級海底地形圖</p>
+      <img src="./assert/111.png" alt="海底等高線" class="example-image" loading="lazy">
+      <div class="code-block">fig = pygmt.Figure()
+fig.grdimage(grid=grid, cmap="haxby", projection="M10c", frame=True)
+fig.grdcontour(grid=grid, annotation=1000, levels=250, limit=[-4000, -2000])
+fig.colorbar(frame=["x+lelevation", "y+lm"])
+fig.show()</div>
+    </div>
+  </section>
+
+  <section id="ex3" class="highlight-example">
+    <div class="container">
+      <h2>3D 立體地形視圖</h2>
+      <p style="font-size:1.25rem;color:var(--primary);max-width:800px;margin:0 auto 1.8rem;">grdview + perspective 一鍵生成電影級 3D 地形</p>
+      <img src="./assert/222.png" alt="3D 地形" class="example-image" loading="lazy">
+      <div class="code-block">fig = pygmt.Figure()
+fig.grdview(
+    grid=grid,
+    perspective=[-130, 30],
+    frame=["xaf", "yaf", "WSnE"],
+    projection="M15c",
+    zsize="1.5c",
+    surftype="s",
+    cmap="geo",
+    plane="1000+ggrey",
+    contourpen="0.1p",
+)
+fig.colorbar(perspective=True, frame=["a500", "x+lElevation", "y+lm"])
+fig.show()</div>
+    </div>
+  </section>
+
+  <section id="ex4" class="highlight-example">
+    <div class="container">
+      <h2>海岸線地圖 + 嵌入小地圖（Inset）</h2>
+      <p style="font-size:1.25rem;color:var(--primary);max-width:800px;margin:0 auto 1.8rem;">fig.coast 結合 fig.inset，輕鬆做出帶定位框的區域地圖</p>
+      <img src="./assert/333.png" alt="海岸線與小地圖" class="example-image" loading="lazy">
+      <div class="code-block">fig = pygmt.Figure()
+fig.coast(
+    region=[-74, -69.5, 41, 43],
+    borders="2/thin",
+    shorelines="thin",
+    projection="M15c",
+    land="lightyellow",
+    water="lightblue",
+    frame="a",
+)
+with fig.inset(
+    position="jBL+o0.5c/0.2c",
+    box=Box(pen="black"),
+    region=[-80, -65, 35, 50],
+    projection="M3c",
+):
+    fig.coast(
+        land="gray",
+        borders=[1, 2],
+        shorelines="1/thin",
+        water="white",
+        dcw="US.MA+gred",
+    )
+fig.show()</div>
+    </div>
+  </section>
+
+  <section id="install" style="background:rgba(0,212,255,0.03);text-align:center;padding:90px 0;">
+    <div class="container">
+      <h2>現在就開始用 PyGMT 畫圖吧！</h2>
+      <p style="font-size:1.35rem;margin:2rem 0;">
+        pip install pygmt　→　幾行程式碼　→　論文級地圖
+      </p>
+      <a href="https://www.pygmt.org/latest/install.html" class="btn" target="_blank">立即安裝 PyGMT</a>
+      <a href="https://www.pygmt.org/latest/gallery.html" class="btn" target="_blank">官方範例畫廊</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>PyGMT 快速入門展示頁 • 2025</p>
+    </div>
+  </footer>
+
+</body>
+</html>
