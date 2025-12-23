@@ -348,14 +348,45 @@
             </div>
 
             <!-- Week 11 -->
-            <div class="cyber-card rounded-2xl relative shadow-2xl">
-                <div class="p-6">
+            <div id="week11-card" class="cyber-card rounded-2xl relative shadow-2xl cursor-pointer" onclick="toggleW11Options(event)">
+    
+                <!-- 預設顯示的內容 -->
+                <div id="w11-main-content" class="p-6 transition-opacity duration-300">
                     <div class="text-blue-500 font-bold mb-1 tracking-widest text-xs uppercase">11/19 第 11 週</div>
                     <h3 class="text-white font-bold text-xl mb-4">板塊構造與地磁 (I)</h3>
                     <div class="space-y-2 text-sm text-slate-400">
                         <p><i class="fas fa-book-open mr-2 text-blue-400"></i>地球磁場與板塊運動</p>
                         <p><i class="fas fa-terminal mr-2 text-green-400"></i>ObsPy 地震波形分析</p>
                     </div>
+                    <p class="text-[10px] text-blue-400 mt-4 animate-pulse"><i class="fas fa-mouse-pointer mr-1"></i> 點擊卡片開啟詳細單元 (6)</p>
+                </div>
+
+                <!-- 點擊後出現的選項遮罩 (6個選項採用較緊湊的排版) -->
+                <div id="w11-options" class="options-overlay absolute inset-0 opacity-0 pointer-events-none flex flex-col justify-center p-4 z-30">
+                    <div class="text-blue-400 text-[9px] font-bold mb-3 tracking-widest uppercase text-center border-b border-blue-500/30 pb-1">請選擇單元</div>
+        
+                    <div class="space-y-1.5 overflow-y-auto max-h-[80%] pr-1">
+                        <a href="https://oceanicdayi.blogspot.com/2025/11/blog-post_18.html" target="_blank" class="hw-btn py-1.5 px-3 mb-0 hover:scale-102">
+                <span class="text-[10px] font-semibold text-blue-200 leading-tight text-center w-full">地球偵探檔案：是誰推動了大陸？</span>
+                        </a>
+                        <a href="https://oceanicdayi.blogspot.com/2025/11/blog-post_36.html" target="_blank" class="hw-btn py-1.5 px-3 mb-0 hover:scale-102">
+                            <span class="text-[10px] font-semibold text-blue-200 leading-tight text-center w-full">鐵磁性礦物磁性質的粒度依賴性</span>
+                        </a>
+                        <a href="https://oceanicdayi.blogspot.com/2025/11/blog-post_7.html" target="_blank" class="hw-btn py-1.5 px-3 mb-0 hover:scale-102">
+                            <span class="text-[10px] font-semibold text-blue-200 leading-tight text-center w-full">磁現象的物理起源與電磁學統一</span>
+                        </a>
+                        <a href="https://oceanicdayi.blogspot.com/2025/11/blog-post_22.html" target="_blank" class="hw-btn py-1.5 px-3 mb-0 hover:scale-102">
+                            <span class="text-[10px] font-semibold text-blue-200 leading-tight text-center w-full">岩石磁學與古地磁學</span>
+                        </a>
+                        <a href="https://oceanicdayi.blogspot.com/2025/11/blog-post_57.html" target="_blank" class="hw-btn py-1.5 px-3 mb-0 hover:scale-102">
+                            <span class="text-[10px] font-semibold text-blue-200 leading-tight text-center w-full">古地磁學改變人類對地球的認識</span>
+                        </a>
+                        <a href="https://oceanicdayi.blogspot.com/2025/11/blog-post_76.html" target="_blank" class="hw-btn py-1.5 px-3 mb-0 hover:scale-102">
+                            <span class="text-[10px] font-semibold text-blue-200 leading-tight text-center w-full">板塊構造理論</span>
+                        </a>
+                    </div>
+        
+                    <button class="return-btn text-slate-500 text-[9px] hover:text-white transition uppercase tracking-widest font-bold mt-3">按此返回</button>
                 </div>
             </div>
 
@@ -480,6 +511,28 @@
                 overlay.classList.remove('opacity-100', 'pointer-events-auto');
                 mainContent.classList.remove('opacity-0');
                 assignmentSection.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // --- 在這裡貼上 W11 的函數 ---
+        function toggleW11Options(event) {
+            const overlay = document.getElementById('w11-options');
+            const mainContent = document.getElementById('w11-main-content');
+        
+            if (event.target.closest('a')) {
+                return;
+            }
+
+            const isShowing = overlay.classList.contains('opacity-100');
+
+            if (!isShowing) {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-100', 'pointer-events-auto');
+                mainContent.classList.add('opacity-0');
+            } else {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                overlay.classList.remove('opacity-100', 'pointer-events-auto');
+                mainContent.classList.remove('opacity-0');
             }
         }
     </script>
