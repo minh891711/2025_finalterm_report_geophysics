@@ -20,7 +20,7 @@
 | **hw5.html** | 子網頁 | 震測實驗報告 |
 | **w5.html** | 子網頁 | 期中考題 - 震測 3 題 |
 | **hw6.html** | 子網頁 | 甘禮有博士演講心得 |
-| **hw7.html** | 子網頁 | 重力測勘成果 (GitHub Pages) |
+| **hw7.html** | 子網頁 | 重力測勘 (GitHub Pages) |
 | **hw9.html** | 子網頁 | Dify 整合應用實作 |
 | **hw10.html** | 子網頁 | PyGMT 板塊邊界繪圖展示 |
 | **hw11.html** | 子網頁 | PyGMT 教學網站導覽 |
